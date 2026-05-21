@@ -9,20 +9,17 @@
 
 ## Motivação
 
-[Por que esta mudança foi necessária?
-Veio de uma decisão de produto, feedback de usuários, bug em produção?]
+[Por que esta mudança foi necessária?]
 
 ---
 
 ## O que mudou
 
 ### Antes
-[Descreva o comportamento, campo ou regra anterior.
-Copie o trecho original do artefato quando possível.]
+[Comportamento, campo ou regra anterior.]
 
 ### Depois
-[Descreva o novo comportamento, campo ou regra.
-Copie o trecho atualizado do artefato.]
+[Novo comportamento, campo ou regra.]
 
 ---
 
@@ -30,23 +27,22 @@ Copie o trecho atualizado do artefato.]
 
 | Repositório | Arquivo(s) | O que precisa mudar |
 |---|---|---|
-| [repo] | [caminho] | [descrição da mudança necessária] |
+| [repo] | [caminho] | [descrição] |
 
 ---
 
-## Features relacionadas
+## Se campo novo — adicionar ao DATA-MODEL.md
 
-[Liste outros N3 que podem ser afetados por esta mudança.]
-
-- [ ] [feature relacionada] — verificar se precisa de atualização
-- [ ] [feature relacionada] — verificar se precisa de atualização
+| Label PO | Label Dev | Campo banco | Tipo | Entidade |
+|---|---|---|---|---|
+| [campo] | [camelCase] | [snake_case] | [tipo] | [Entidade] |
 
 ---
 
-## Status de implementação
+## Status
 
 - [ ] Artefato de spec atualizado
+- [ ] DATA-MODEL.md atualizado (se houver campos novos)
 - [ ] INDEX.md atualizado
 - [ ] Código atualizado em [repo]
-- [ ] Testes atualizados
 - [ ] PR de implementação: [link]

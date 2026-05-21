@@ -1,10 +1,8 @@
 <!--
   CONVENÇÃO DE VISIBILIDADE
-  ─────────────────────────────────────────────────────────────────
   Blocos <div class="dev-only"> contêm detalhes técnicos.
   Versão PO  → CSS: .dev-only { display: none; }
   Versão DEV → sem CSS adicional
-  ─────────────────────────────────────────────────────────────────
 -->
 
 # Feature Set: [Nome do Feature Set]
@@ -13,7 +11,7 @@
 ## Responsabilidade
 [Descrição em 2-3 frases do que este Feature Set faz.]
 
-**Não faz**: [o que explicitamente está fora do escopo deste Feature Set.]
+**Não faz**: [o que está explicitamente fora do escopo.]
 
 ---
 
@@ -48,7 +46,6 @@
 | Regra | Descrição |
 |---|---|
 | [Feature A] depende de [Feature B] | [por quê e como] |
-| [restrição de exclusão mútua] | [descrição] |
 
 ---
 
@@ -72,11 +69,16 @@
 
 <div class="dev-only">
 
-## Campos consolidados do Feature Set
+## Campos do Feature Set
 
-| Label PO | Label Dev | Campo banco | Tipo | Feature(s) |
-|---|---|---|---|---|
-| [campo] | [camelCase] | [snake_case] | [tipo SQL] | [Feature(s)] |
+<!--
+  Label PO para referência cruzada.
+  Label Dev e campo banco: ver DATA-MODEL.md para cada entidade.
+-->
+
+| Label PO | Feature(s) | Entidade | → DATA-MODEL.md |
+|---|---|---|---|
+| [campo em português] | [Feature(s)] | [Entidade] | → ver DATA-MODEL.md: [Entidade] |
 
 ---
 

@@ -9,21 +9,21 @@
 - **Nome**: [Nome do sistema]
 - **Descrição**: [Uma frase descrevendo o propósito do sistema]
 - **Versão atual**: [ex: 1.0.0]
-- **Repositório de docs**: [URL do repo de documentação]
+- **Repositório de docs**: [URL]
 
 ---
 
 ## Stack técnica
 
-- **Frontend**: [ex: Next.js 14 (App Router), TypeScript, Tailwind CSS]
-- **Backend**: [ex: Node.js + Express / Next.js API Routes]
+- **Frontend**: [ex: Next.js 14, TypeScript, Tailwind CSS]
+- **Backend**: [ex: Node.js, Express / Next.js API Routes]
 - **Banco de dados**: [ex: PostgreSQL com Prisma ORM]
 - **Autenticação**: [ex: NextAuth.js com Google Provider]
 - **Fila / Jobs**: [ex: BullMQ + Redis]
 - **Storage**: [ex: AWS S3 / Cloudflare R2]
 - **E-mail**: [ex: SendGrid]
 - **SMS**: [ex: Twilio]
-- **Mensageria**: [ex: Evolution API (WhatsApp)]
+- **Mensageria**: [ex: Evolution API — WhatsApp]
 
 ---
 
@@ -68,27 +68,37 @@
   /audit.ts         → registro de auditoria
   /validations/     → schemas Zod por módulo
 /services           → lógica de negócio separada dos controllers
+/repositories       → acesso a dados separado dos services
 ```
 
 ---
 
-## Convenções de banco de dados
+## Nomenclatura de campos — três camadas
 
-### Nomenclatura de campos
-| Camada | Convenção | Exemplo |
-|---|---|---|
-| Label PO | Português, title case | `Nome completo` |
-| Label Dev | camelCase, inglês | `fullName` |
-| Campo banco | [INFORMAR CONVENÇÃO DA ORGANIZAÇÃO] | `full_name` |
+A nomenclatura de campos segue três camadas com responsabilidades distintas.
+**A única fonte de verdade para Label Dev e campo banco é o `global/DATA-MODEL.md`.**
+Os N3 usam apenas Label PO — nunca duplicam as camadas técnicas.
 
-### Campos obrigatórios em toda tabela
-| Campo banco | Tipo | Descrição |
-|---|---|---|
-| `id` | uuid | PK; gerado automaticamente |
-| `organization_id` | uuid | FK → organizations; multitenancy |
-| `created_at` | timestamptz | Gerado automaticamente |
-| `updated_at` | timestamptz | Atualizado automaticamente |
-| `deleted_at` | timestamptz | Soft delete; null = ativo |
+| Camada | Convenção | Exemplo | Onde aparece |
+|---|---|---|---|
+| Label PO | Português, title case, sem jargão | `Nome completo` | N3 (tabela de campos), Gherkin, telas |
+| Label Dev | camelCase, inglês, autoexplicativo | `fullName` | DATA-MODEL.md, código, API |
+| Campo banco | [CONVENÇÃO DA ORGANIZAÇÃO] | `full_name` | DATA-MODEL.md, migrations, ORM |
+
+> ⚠️ Informe aqui a convenção de banco de dados da sua organização
+> antes de usar este arquivo em qualquer sessão.
+
+---
+
+## Campos globais obrigatórios em toda tabela
+
+| Label Dev | Campo banco | Tipo | Notas |
+|---|---|---|---|
+| id | id | uuid | PK; gerado automaticamente |
+| organizationId | organization_id | uuid | FK → organizations; multitenancy |
+| createdAt | created_at | timestamptz | Gerado automaticamente |
+| updatedAt | updated_at | timestamptz | Atualizado automaticamente |
+| deletedAt | deleted_at | timestamptz | Soft delete; null = ativo |
 
 ---
 
@@ -100,6 +110,7 @@
 4. **Paginação**: sempre cursor-based; padrão 20 itens; teto 100
 5. **Validação**: Zod em frontend e backend; nunca confiar apenas no client
 6. **Auditoria**: ações críticas sempre registradas em `AuditLog`
+7. **Eventos internos**: módulos comunicam-se via eventos, nunca chamadas diretas
 
 ---
 
@@ -113,7 +124,7 @@
 { "data": [...], "meta": { "total": 0, "nextCursor": null, "prevCursor": null } }
 
 // Erro
-{ "data": null, "error": { "code": "ERRO_EXEMPLO", "message": "...", "details": [] } }
+{ "data": null, "error": { "code": "ENTIDADE_ERRO", "message": "...", "details": [] } }
 ```
 
 ---
@@ -121,9 +132,10 @@
 ## O que NUNCA fazer
 
 - Usar `any` no TypeScript
-- Expor IDs sequenciais do banco em URLs ou respostas de API
+- Expor IDs sequenciais do banco em URLs ou respostas
 - Retornar senhas ou tokens em respostas, mesmo hasheados
 - Fazer query sem filtrar por `organization_id`
 - Remover registros fisicamente do banco
 - Lançar exceções cruas — sempre retornar envelope de erro padronizado
 - Chamar diretamente outro módulo — usar eventos internos
+- Duplicar Label Dev ou campo banco nos N3 — essas informações vivem apenas no DATA-MODEL.md

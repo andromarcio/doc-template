@@ -9,9 +9,8 @@
 
 ## Contexto
 
-[Descreva o problema ou situação que motivou esta decisão.
-Quais foram as forças em jogo? Quais restrições existiam?
-O que tornava esta decisão necessária neste momento?]
+[Descreva o problema que motivou esta decisão. Quais forças estavam em jogo?
+Quais restrições existiam? O que tornava esta decisão necessária agora?]
 
 ---
 
@@ -24,17 +23,17 @@ Use linguagem assertiva: "Usaremos X" em vez de "Poderíamos usar X".]
 
 ## Alternativas consideradas
 
-### Opção A: [Nome da alternativa]
+### Opção A: [Nome]
 **Descrição**: [como funcionaria]
 **Prós**: [vantagens]
 **Contras**: [desvantagens]
-**Por que não foi escolhida**: [motivo]
+**Por que não**: [motivo]
 
-### Opção B: [Nome da alternativa]
+### Opção B: [Nome]
 **Descrição**: [como funcionaria]
 **Prós**: [vantagens]
 **Contras**: [desvantagens]
-**Por que não foi escolhida**: [motivo]
+**Por que não**: [motivo]
 
 ---
 
@@ -42,14 +41,12 @@ Use linguagem assertiva: "Usaremos X" em vez de "Poderíamos usar X".]
 
 ### Positivas
 - [benefício esperado]
-- [benefício esperado]
 
 ### Negativas / Trade-offs
 - [custo ou limitação aceita]
-- [custo ou limitação aceita]
 
 ### Riscos
-- [risco identificado e como será mitigado]
+- [risco e como será mitigado]
 
 ---
 
@@ -63,4 +60,4 @@ Use linguagem assertiva: "Usaremos X" em vez de "Poderíamos usar X".]
 
 ## Notas adicionais
 
-[Referências, links, discussões relevantes ou contexto adicional.]
+[Referências, links, discussões relevantes.]

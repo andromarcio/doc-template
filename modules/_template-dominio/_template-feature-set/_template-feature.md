@@ -18,36 +18,39 @@ para alguém que nunca viu o sistema.]
 
 ## Campos
 
-| Label PO | Label Dev | Obrigatório | Validação |
+<!--
+  Esta tabela usa apenas Label PO e regras em linguagem de negócio.
+  A nomenclatura técnica (Label Dev e campo banco) está centralizada
+  no DATA-MODEL.md — não duplicar aqui.
+-->
+
+| Label PO | Tipo | Obrigatório | Validação |
 |---|---|---|---|
-| [Nome do campo] | [camelCase] | sim/não/auto | [regras em linguagem natural] |
+| [Nome do campo em português] | [texto / número / data / lista de opções / sim·não / arquivo] | sim / não / automático | [regras em linguagem natural] |
 
 *[Notas sobre dependências entre campos, se houver.]*
 
 ### Campos preenchidos automaticamente pelo sistema
 
-| Label PO | Label Dev | Valor | Quando |
-|---|---|---|---|
-| [campo] | [camelCase] | [valor fixo ou calculado] | [momento] |
-
-<div class="dev-only">
-
-### Mapeamento para o banco de dados
-
-| Label Dev | Campo banco | Tipo SQL | Notas |
-|---|---|---|---|
-| [camelCase] | [snake_case] | [tipo] | [FK, enum values, constraints] |
-
-</div>
+| Label PO | Valor | Quando |
+|---|---|---|
+| [campo] | [valor fixo ou calculado em linguagem natural] | [momento — ex: "no momento do salvamento"] |
 
 ---
 
 ## Regras de negócio
 
-1. [Regra em linguagem de negócio — quem pode, o que acontece, quando]
-2. [Regra de validação ou restrição]
-3. [Ação automática disparada ao concluir]
-4. [Regra de rastreabilidade/auditoria]
+<!--
+  Regras canônicas: referenciar o dicionário em vez de repetir.
+  Regras de domínio: referenciar o N1 em vez de repetir.
+  Regras específicas desta feature: descrever aqui.
+-->
+
+1. [Regra específica desta feature em linguagem de negócio]
+   → ver RULES-DICTIONARY: [nome da regra] *(se for regra canônica)*
+   → ver [N1 do domínio]: Regras transversais: [N] *(se for regra de domínio)*
+
+2. [Regra específica]
 
 ---
 
@@ -63,7 +66,7 @@ Feature: [Nome da feature em linguagem natural]
   # ── Caminho feliz ──────────────────────────────────────────────
 
   Scenario: [Descrição do cenário principal]
-    Given [estado inicial]
+    Given [estado inicial em linguagem de negócio]
     When [ação do usuário]
     Then [resultado esperado]
     And [efeito colateral esperado]
@@ -71,39 +74,36 @@ Feature: [Nome da feature em linguagem natural]
   # ── Erros de validação ─────────────────────────────────────────
 
   Scenario: [Campo obrigatório ausente]
-    When o usuário deixa o campo "[campo]" vazio
+    When o usuário deixa o campo "[Label PO]" vazio
     And clica em "[botão de ação]"
-    Then [entidade] não é criada/alterada
-    And o sistema exibe abaixo do campo: "[mensagem de erro]"
+    Then o sistema exibe abaixo do campo: "[mensagem de erro]"
 
   Scenario: [Formato inválido]
-    When o usuário preenche "[campo]" com "[valor inválido]"
-    And clica em "[botão de ação]"
-    Then [entidade] não é criada/alterada
-    And o sistema exibe abaixo do campo: "[mensagem de erro]"
+    When o usuário preenche "[Label PO]" com "[valor inválido]"
+    Then o sistema exibe abaixo do campo: "[mensagem de erro]"
+    # ← FIELD-DICTIONARY: [nome do campo] *(se for campo canônico)*
 
   # ── Conflitos com dados existentes ────────────────────────────
 
   Scenario: [Duplicata ou conflito]
     Given que já existe [registro] com [dado conflitante]
     When o usuário tenta [ação]
-    Then [entidade] não é criada/alterada
-    And o sistema exibe a mensagem: "[mensagem de erro]"
+    Then o sistema exibe: "[mensagem de conflito]"
 
   # ── Restrições de acesso ───────────────────────────────────────
 
   Scenario: [Perfil sem permissão]
     Given que o usuário autenticado tem perfil "[perfil]"
     When o usuário tenta [ação]
-    Then o sistema exibe a mensagem: "[mensagem de acesso negado]"
+    Then o sistema exibe: "[mensagem de acesso negado]"
 
   # ── Estados especiais ──────────────────────────────────────────
 
   Scenario: [Situação especial do sistema]
-    Given que [estado especial do sistema]
+    Given que [estado especial]
     When o usuário tenta [ação]
     Then [comportamento alterado]
-    And o sistema exibe a mensagem: "[mensagem contextual]"
+    And o sistema exibe: "[mensagem contextual]"
 ```
 
 ---
@@ -120,23 +120,35 @@ formulário em página própria, modal, botão em listagem, etc.]
 |---|---|
 | Loading | [o que exibir durante o processamento] |
 | Erro de validação | [como exibir erros de campo] |
-| Erro de servidor | [toast ou mensagem de erro genérico] |
+| Erro de servidor | [toast ou mensagem genérica] |
 | Sucesso | [toast, redirecionamento ou relatório] |
 | Empty state | [quando e o que exibir se não há dados] |
 
+---
+
 <div class="dev-only">
+
+## Mapeamento de campos
+→ ver DATA-MODEL.md: Entidade [Nome da Entidade]
+
+<!--
+  Todos os campos desta feature — Label Dev, campo banco, tipo SQL
+  e constraints — estão centralizados no DATA-MODEL.md.
+  Campos novos aprovados durante a sessão devem ser adicionados
+  ao DATA-MODEL.md antes de iniciar a implementação.
+-->
 
 ---
 
 ## Cenários técnicos adicionais
 
 ```gherkin
-  # ── Comportamento de sessão / técnico ─────────────────────────
+  # ── Comportamento técnico ──────────────────────────────────────
 
-  Scenario: [Cenário técnico]
+  Scenario: [Cenário técnico — sessão, cookies, formato de erro HTTP]
     Given [estado técnico]
     When [ação técnica]
-    Then [resultado técnico]
+    Then [resultado técnico com formato JSON ou HTTP status]
 ```
 
 ---
@@ -157,17 +169,17 @@ formulário em página própria, modal, botão em listagem, etc.]
 **Body / Query params**:
 ```typescript
 {
-  campo: tipo        // [obrigatório/opcional]; [validação]
-  campo?: tipo       // opcional
+  [labelDev]: tipo        // Label PO: [Label PO] — obrigatório/opcional
+  [labelDev]?: tipo       // Label PO: [Label PO] — opcional
 }
+// Tipos e constraints completos: ver DATA-MODEL.md: Entidade [Nome]
 ```
 
 **Resposta de sucesso** — HTTP [código]:
 ```json
 {
   "data": {
-    "id": "uuid",
-    "campo": "valor"
+    "id": "uuid"
   },
   "meta": null
 }
@@ -186,7 +198,7 @@ formulário em página própria, modal, botão em listagem, etc.]
 ### Publicados
 | Evento | Quando | Payload | Consumidores |
 |---|---|---|---|
-| `[entidade.acao]` | [quando] | [campos principais] | [quem consome] |
+| `[entidade.acao]` | [quando] | `{ organizationId, [id] }` | [quem consome] |
 
 ### Consumidos
 | Evento | Publicado por | Reação |
@@ -205,7 +217,8 @@ logAction({
   targetEntity: '[Entidade]',
   targetId: [entidade].id,
   metadata: {
-    [campo]: [valor]
+    // campos relevantes usando Label Dev
+    // → nomes completos em DATA-MODEL.md: Entidade [Nome]
   }
 })
 ```
@@ -231,11 +244,6 @@ logAction({
 
 ## Implementação
 
-<!--
-  Preenchido pelo dev após a implementação.
-  Atualizar também o status no modules/INDEX.md.
--->
-
 | Item | Repositório | Caminho | Branch/Tag |
 |---|---|---|---|
 | [endpoint/componente/job] | [repo] | [caminho no repo] | `main` |
@@ -244,5 +252,5 @@ logAction({
 
 ---
 
-*Feature Set: [Nome do Feature Set] · Domínio: [Nome do Domínio] · Última revisão: —*
+*Feature Set: [Nome] · Domínio: [Nome] · Última revisão: —*
 *Links: [N2 do Feature Set](./README.md) · [N1 do domínio](../README.md) · [INDEX geral](../../INDEX.md)*
