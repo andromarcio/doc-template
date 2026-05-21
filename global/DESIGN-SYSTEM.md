@@ -44,7 +44,7 @@
 ### Botões
 | Variante | Uso | Posição padrão |
 |---|---|---|
-| Primary | Ação principal da tela | Direita do rodapé do formulário |
+| Primary | Ação principal | Direita do rodapé do formulário |
 | Secondary | Ação secundária | À esquerda do Primary |
 | Ghost / Cancel | Cancelar ou descartar | À esquerda do Secondary |
 | Danger | Excluir, desativar | Separado das demais ações |
@@ -57,16 +57,14 @@
 - Campos desabilitados com opacidade reduzida e cursor `not-allowed`
 
 ### Tabelas e listas
-- Coluna de ações sempre na **última coluna** (ícones: editar, excluir)
+- Coluna de ações sempre na **última coluna**
 - Linha clicável leva ao detalhe do registro
-- Linha com hover em cor `neutral` suave
 - Paginação no **rodapé** da tabela
 
 ### Modais
 - Confirmação de exclusão: **sempre modal** — nunca `confirm()` nativo
 - Estrutura: título + descrição + botão de ação (danger) + botão cancelar
-- Fechar modal com ESC ou clique fora da área
-- Máximo de [largura]px de largura
+- Fechar com ESC ou clique fora da área
 
 ### Toasts / Notificações
 - Posição: [ex: canto superior direito]
@@ -78,23 +76,17 @@
 ## Estados obrigatórios de tela
 
 Todo módulo deve tratar e exibir os quatro estados abaixo.
-Nunca deixar a tela em branco ou congelada.
 
 ### Loading
 - Usar **skeleton** no lugar do conteúdo que está carregando
-- Nunca usar spinner genérico isolado no centro da tela
-- Blocos de skeleton devem ter a mesma proporção do conteúdo real
+- Nunca usar spinner genérico isolado
+- Blocos de skeleton com a mesma proporção do conteúdo real
 
 ### Empty state
-- Ícone ilustrativo (não genérico)
-- Título: o que não foi encontrado
-- Descrição: por que está vazio ou o que o usuário pode fazer
-- Botão de ação primária quando aplicável (ex: "Criar primeiro contato")
+- Ícone ilustrativo + título + descrição + botão de ação (quando aplicável)
 
 ### Error state
-- Ícone de erro
-- Mensagem descritiva (não "Erro 500")
-- Botão "Tentar novamente" que re-executa a última operação
+- Ícone de erro + mensagem descritiva + botão "Tentar novamente"
 
 ### Success
 - Toast com mensagem de confirmação
@@ -105,9 +97,9 @@ Nunca deixar a tela em branco ou congelada.
 ## Padrões de navegação
 
 - Breadcrumb atualizado em toda navegação
-- URL sempre reflete o estado atual da tela (filtros, tabs, modal aberto)
+- URL sempre reflete o estado atual (filtros, tabs, modal aberto)
 - Botão Voltar do browser deve funcionar corretamente
-- Links externos sempre abrem em nova aba (`target="_blank"`)
+- Links externos sempre abrem em nova aba
 
 ---
 

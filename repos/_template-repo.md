@@ -1,6 +1,6 @@
 # Repositório: [nome-do-repo]
 
-- **URL**: [link para o repositório]
+- **URL**: [link]
 - **Responsabilidade**: [o que este repositório faz no sistema]
 - **Responsável técnico**: [nome]
 - **Stack**: [tecnologias principais]
@@ -12,7 +12,6 @@
 ```
 [nome-do-repo]/
 ├── [pasta]              ← [descrição]
-│   ├── [subpasta]       ← [descrição]
 │   └── [subpasta]       ← [descrição]
 └── [pasta]              ← [descrição]
 ```
@@ -23,17 +22,17 @@
 
 ```bash
 # Pré-requisitos
-[lista de dependências — ex: Node 20+, PostgreSQL 15+]
+[ex: Node 20+, PostgreSQL 15+]
 
 # Instalação
-[comandos de instalação]
+[comandos]
 
 # Configuração
 cp .env.example .env
-[instruções de configuração do .env]
+[instruções]
 
 # Iniciar
-[comando para rodar]
+[comando]
 ```
 
 ---
@@ -48,27 +47,18 @@ cp .env.example .env
 
 ## Features implementadas neste repositório
 
-<!--
-  Mantido automaticamente via PR template.
-  Cada PR de feature adiciona uma linha aqui.
--->
-
 | Feature | N3 de referência | Status | PR |
 |---|---|---|---|
-| [nome da feature] | [link para o N3] | ✅ Implementado | [link para o PR] |
+| [feature] | [link para N3] | ✅ Implementado | [link] |
 
 ---
 
 ## Convenções específicas deste repositório
 
-[Descreva aqui qualquer convenção que se aplica apenas a este repositório
-e que não está coberta pelo MASTER.md global.]
-
-### Estrutura de módulos
-[ex: cada módulo tem as pastas controller/, service/, dto/, spec/]
+[Convenções que se aplicam apenas aqui e não estão no MASTER.md global.]
 
 ### Padrão de testes
-[ex: testes unitários com Jest; integração com Supertest]
+[ex: Jest para unitários, Supertest para integração]
 
 ### Deploy
 [como e quando o deploy é realizado]

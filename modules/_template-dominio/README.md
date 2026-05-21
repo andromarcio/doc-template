@@ -1,10 +1,8 @@
 <!--
   CONVENÇÃO DE VISIBILIDADE
-  ─────────────────────────────────────────────────────────────────
   Blocos <div class="dev-only"> contêm detalhes técnicos.
   Versão PO  → CSS: .dev-only { display: none; }
   Versão DEV → sem CSS adicional
-  ─────────────────────────────────────────────────────────────────
 -->
 
 # Domínio: [Nome do Domínio]
@@ -24,7 +22,7 @@
 
 | Feature Set | Pasta | Responsabilidade | Features |
 |---|---|---|---|
-| [Nome](./[pasta]/README.md) | `[dominio]/[pasta]/` | [descrição] | [N] |
+| [Nome](./[pasta]/README.md) | `[dominio]/[pasta]/` | [descrição em uma linha] | [N] |
 
 ---
 
@@ -40,14 +38,12 @@
 ### Leitura — domínios que consomem dados deste domínio
 | Domínio | O que consome | Como |
 |---|---|---|
-| [Domínio] | [entidade/campo] | FK / Evento / Serviço |
+| [Domínio] | [entidade/campo em Label PO] | FK / Evento / Serviço |
 
 ### Escrita — domínios que criam ou alteram dados deste domínio
 | Domínio | O que altera | Situação |
 |---|---|---|
-| [Domínio] | [entidade/campo] | [quando ocorre] |
-
----
+| [Domínio] | [entidade/campo em Label PO] | [quando ocorre] |
 
 ### Eventos publicados por este domínio
 | Evento | Situação | Consumidores |
@@ -65,12 +61,13 @@
 
 ## Entidades do domínio
 
-### [Nome da Entidade]
-[Descrição em uma linha.]
+<!--
+  Apenas nome e descrição das entidades — campos completos estão no DATA-MODEL.md.
+-->
 
-| Label PO | Label Dev | Campo banco | Tipo | Obrigatório | Notas |
-|---|---|---|---|---|---|
-| [campo] | [camelCase] | [snake_case] | [tipo SQL] | sim/não/auto | [notas] |
+| Entidade | Descrição | Campos no DATA-MODEL.md |
+|---|---|---|
+| [Nome] | [descrição em uma linha] | → ver DATA-MODEL.md: [Nome] |
 
 ---
 

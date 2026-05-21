@@ -1,15 +1,14 @@
 # Índice geral de módulos
 > Visão consolidada de todos os domínios do sistema.
-> Gerado e mantido via PROMPT 1A/1B — não editar manualmente as
-> seções marcadas com [AUTO].
+> Mantido via PROMPT 1A/1B — atualizar após cada N1 aprovado.
 
 ---
 
-## Domínios [AUTO]
+## Domínios
 
 | Domínio | Pasta | Responsabilidade | Feature Sets |
 |---|---|---|---|
-| [Nome] | `modules/[dominio]/` | [responsabilidade] | [N] |
+| [Nome] | `modules/[dominio]/` | [responsabilidade em uma frase] | [N] |
 
 ---
 
@@ -25,15 +24,15 @@
 
 ---
 
-## Entidades consolidadas [AUTO]
+## Entidades consolidadas
 
-| Entidade | Domínio | Arquivo |
+| Entidade | Domínio | N1 de origem |
 |---|---|---|
 | [Entidade] | [Domínio] | [link para README.md do domínio] |
 
 ---
 
-## Eventos do sistema [AUTO]
+## Eventos do sistema
 
 | Evento | Publicado por | Consumido por | Payload principal |
 |---|---|---|---|
@@ -41,7 +40,7 @@
 
 ---
 
-## Mapa de integrações entre domínios [AUTO]
+## Mapa de integrações entre domínios
 
 | Domínio origem | Depende de | Tipo | Descrição |
 |---|---|---|---|
