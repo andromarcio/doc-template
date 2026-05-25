@@ -1,6 +1,8 @@
-# Domínio: Work
+# Data Model: Work
+> Fragmento do DATA-MODEL.md — cole apenas este arquivo nas sessões
+> que envolvam o domínio Work.
 
-#### Task
+## Task
 
 | Label PO | Label Dev | Campo banco | Tipo SQL | Obrigatório | Notas |
 |---|---|---|---|---|---|
@@ -13,14 +15,14 @@
 | Status | status | status | enum | automático | open \| in_progress \| done \| cancelled |
 | Prioridade | priority | priority | enum | sim | low \| medium \| high |
 
-#### Notification
+## Notification
 
 | Label PO | Label Dev | Campo banco | Tipo SQL | Obrigatório | Notas |
 |---|---|---|---|---|---|
 | Destinatário | userId | user_id | uuid | sim | FK → users.id |
-| Tipo | type | type | enum | sim | task_assigned \| import_completed \| message_failed... |
+| Tipo | type | type | enum | sim | task_assigned \| import_completed \| message_failed |
 | Título | title | title | varchar(120) | sim | |
 | Corpo | body | body | text | sim | |
 | Lida em | readAt | read_at | timestamptz | não | Null = não lida |
 | Entidade relacionada | relatedEntity | related_entity | varchar(60) | não | Ex: Task, Contact |
-| ID da entidade relacionada | relatedId | related_id | uuid | não | ID do registro relacionado |
+| ID da entidade | relatedId | related_id | uuid | não | |
