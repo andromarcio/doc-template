@@ -1,11 +1,11 @@
 # DATA-MODEL.md
-> **Fonte única de verdade** para nomenclatura e mapeamento de campos.
-> Toda nova feature que introduzir campos novos deve atualizá-lo
-> antes da implementação — nunca depois.
+> **Índice e fonte de verdade** para nomenclatura e mapeamento de campos.
+> Os modelos detalhados estão fragmentados por domínio em `global/data-models/`
+> para otimizar o contexto enviado ao LLM — cole apenas o fragmento do
+> domínio que está sendo trabalhado, não o arquivo inteiro.
 >
-> Os N3 referenciam este arquivo para nomenclatura técnica:
-> `→ ver DATA-MODEL.md: Entidade [Nome]`
-> Os N3 nunca duplicam Label Dev ou campo banco em suas próprias tabelas.
+> Os N3 referenciam com: `→ ver DATA-MODEL.md: Entidade [Nome]`
+> Os N3 **nunca** duplicam Label Dev ou campo banco em suas tabelas.
 
 ---
 
@@ -13,41 +13,37 @@
 
 | Camada | Convenção | Exemplo | Onde aparece |
 |---|---|---|---|
-| Label PO | Português, title case, sem jargão | `Nome completo` | N3 (tabela de campos), Gherkin, telas |
-| Label Dev | camelCase, inglês, autoexplicativo | `fullName` | N3 (API, AuditLog, pseudocódigo), código |
-| Campo banco | [CONVENÇÃO DA ORGANIZAÇÃO] | `full_name` | Migrations, schema Prisma, queries |
+| Label PO | Português, title case, sem jargão | `Nome completo` | N3 (campos), Gherkin, telas |
+| Label Dev | camelCase, inglês, autoexplicativo | `fullName` | **data-models/[dominio].md** — apenas aqui |
+| Campo banco | [CONVENÇÃO DA ORGANIZAÇÃO] | `full_name` | **data-models/[dominio].md** — apenas aqui |
 
-> ⚠️ Informe aqui a convenção de nomenclatura de banco de dados
-> utilizada pela sua organização.
-> Exemplos: snake_case, camelCase, PascalCase, prefixo por módulo.
+> ⚠️ Informe aqui a convenção de banco de dados da sua organização.
 
 ---
 
 ## Campos globais (presentes em todas as tabelas)
 
-Estes campos existem em toda entidade do sistema.
-Não precisam ser listados nas tabelas de entidade abaixo —
-estão implícitos.
+Estão implícitos — não precisam ser listados nos arquivos de domínio.
 
 | Label PO | Label Dev | Campo banco | Tipo SQL | Notas |
 |---|---|---|---|---|
 | Identificador | id | id | uuid | PK; gerado automaticamente |
-| Organização | organizationId | organization_id | uuid | FK → organizations; multitenancy obrigatório |
-| Data de criação | createdAt | created_at | timestamptz | Gerado automaticamente pelo banco |
+| Organização | organizationId | organization_id | uuid | FK → organizations; multitenancy |
+| Data de criação | createdAt | created_at | timestamptz | Gerado automaticamente |
 | Data de atualização | updatedAt | updated_at | timestamptz | Atualizado automaticamente |
-| Data de exclusão | deletedAt | deleted_at | timestamptz | Null = ativo; soft delete |
+| Data de exclusão | deletedAt | deleted_at | timestamptz | Soft delete; null = ativo |
 
 ---
 
-## Entidades por domínio
+## Modelos por domínio
 
-Os modelos de dados detalhados estão fragmentados por domínio para facilitar o gerenciamento de contexto do LLM.
-
-- [Identity](data-models/identity.md)
-- [Contacts](data-models/contacts.md)
-- [Communication](data-models/communication.md)
-- [Work](data-models/work.md)
-- [Capture](data-models/capture.md)
+| Domínio | Arquivo | Entidades |
+|---|---|---|
+| Identity | [data-models/identity.md](./data-models/identity.md) | Organization, User, AuditLog |
+| Contacts | [data-models/contacts.md](./data-models/contacts.md) | Contact, Tag, SmartList, ImportJob |
+| Communication | [data-models/communication.md](./data-models/communication.md) | Message, EmailTemplate, WhatsAppConversation |
+| Work | [data-models/work.md](./data-models/work.md) | Task, Notification |
+| Capture | [data-models/capture.md](./data-models/capture.md) | Form, FormSubmission |
 
 ---
 
@@ -68,15 +64,9 @@ Os modelos de dados detalhados estão fragmentados por domínio para facilitar o
 
 ## Campos adicionados recentemente
 
-<!--
-  Registre aqui campos novos aprovados durante sessões de N3
-  antes de atualizar as tabelas acima.
-  Facilita a criação das migrations e o rastreamento de mudanças.
--->
-
 | Data | Entidade | Label PO | Label Dev | Campo banco | Tipo | N3 de origem |
 |---|---|---|---|---|---|---|
-| [data] | [entidade] | [label PO] | [camelCase] | [snake_case] | [tipo] | [link para o N3] |
+| [data] | [entidade] | [label PO] | [camelCase] | [snake_case] | [tipo] | [link] |
 
 ---
 
@@ -90,17 +80,17 @@ Organization 1──N SmartList
 Organization 1──N Form
 Organization 1──N ImportJob
 
-User (owner) 1──N Contact
+User (owner)    1──N Contact
 User (assigned) 1──N Task
-User 1──N Message (remetente)
-User 1──N Notification
+User            1──N Message (remetente)
+User            1──N Notification
 
 Contact N──N Tag (via Contact.tags[])
 Contact 1──N Message
 Contact 1──N Task
 Contact 1──N FormSubmission
 
-Form 1──N FormSubmission
+Form     1──N FormSubmission
 ImportJob 1──N Contact (criados pela importação)
 ```
 
@@ -111,11 +101,11 @@ ImportJob 1──N Contact (criados pela importação)
 | Tabela | Campos | Tipo | Justificativa |
 |---|---|---|---|
 | users | (organization_id, email) | UNIQUE | E-mail único por organização |
-| contacts | (organization_id, email) | UNIQUE (partial: email IS NOT NULL) | E-mail único por organização |
-| tags | (organization_id, name) | UNIQUE | Tag única por organização (case-insensitive) |
+| contacts | (organization_id, email) | UNIQUE partial (IS NOT NULL) | E-mail único por organização |
+| tags | (organization_id, name) | UNIQUE | Tag única por organização |
 | smart_lists | (organization_id, name) | UNIQUE | Nome de lista único por organização |
 | forms | (organization_id, slug) | UNIQUE | Slug único por organização |
 | organizations | (slug) | UNIQUE | Slug único global |
-| contacts | (organization_id) | INDEX | Listagens frequentes por organização |
-| tasks | (organization_id, assigned_to) | INDEX | Filtro de tarefas por responsável |
-| messages | (organization_id, contact_id) | INDEX | Histórico de mensagens por contato |
+| contacts | (organization_id) | INDEX | Listagens frequentes |
+| tasks | (organization_id, assigned_to) | INDEX | Filtro por responsável |
+| messages | (organization_id, contact_id) | INDEX | Histórico por contato |
