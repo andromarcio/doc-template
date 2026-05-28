@@ -250,8 +250,6 @@ logAction({
   Critérios de contagem: ver global/SIZING.md
 -->
 
-### APF
-
 | Endpoint / Função de dados | Tipo | Complexidade | PF |
 |---|---|---|---|
 | [ex: POST /api/v1/[rota]] | EE | Baixa / Média / Alta | [3/4/6] |
@@ -259,39 +257,6 @@ logAction({
 | [ex: Entidade [Nome]] | ALI | Baixa / Média / Alta | [7/10/15] |
 
 **Total: [N] PF**
-
-<details>
-<summary>Memória de cálculo</summary>
-
-| Elemento | DET / RET / FTR | Justificativa |
-|---|---|---|
-| [Endpoint ou Entidade] | DET: [N] · RET/FTR: [N] | [campos contados, excluídos etc.] |
-
-</details>
-
----
-
-### COSMIC
-
-| Endpoint | E | X | R | W | CFP |
-|---|---|---|---|---|---|
-| [ex: POST /api/v1/[rota]] | [N] | [N] | [N] | [N] | [total] |
-| [ex: GET /api/v1/[rota]] | [N] | [N] | [N] | [N] | [total] |
-
-**Total: [N] CFP**
-
-<details>
-<summary>Memória de cálculo</summary>
-
-| Endpoint | Movimento | Campo / Entidade | Conta? | Justificativa |
-|---|---|---|---|---|
-| [Endpoint] | E | [campo] | Sim | [body param de negócio] |
-| [Endpoint] | E | [organizationId via JWT] | Não | [campo de controle] |
-| [Endpoint] | X | [campo na resposta] | Sim | [campo de negócio] |
-| [Endpoint] | R | [Entidade lida] | Sim | [leitura para validação] |
-| [Endpoint] | W | [Entidade escrita] | Sim | [criação/atualização] |
-
-</details>
 
 ---
 
