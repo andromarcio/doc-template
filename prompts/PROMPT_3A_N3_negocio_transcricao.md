@@ -97,42 +97,16 @@ Não omita nenhuma seção — se não houver informação, use ❓.
 
 ---
 
-<!--
-  CONVENÇÃO DE VISIBILIDADE
-  Blocos <div class="dev-only"> serão preenchidos pelo PROMPT 3B.
-  Versão PO → CSS: .dev-only { display: none; }
--->
-
-# Feature: [nome extraído da transcrição ou ❓]
+# [nome extraído da transcrição ou ❓]
 > **Nível 3** — Feature Set: [do N2 fornecido] — Domínio: [do N1 fornecido]
 > **Origem**: Transcrição de reunião — [data se mencionada ou ❓]
 > **Participantes**: [nomes mencionados na transcrição ou ❓]
 
 ---
 
-## Objetivo
-[Extraído da transcrição. Se não houver descrição clara: ❓ Objetivo não
-descrito na reunião — descrever em uma frase o que esta feature faz.]
-
----
-
-## Campos
-
-| Label PO | Tipo | Obrigatório | Validação |
-|---|---|---|---|
-| [campo extraído] | [tipo] | [sim/não/❓] | [regra ou ❓ Não mencionado] |
-
-> ❓ **Campos não confirmados**: [listar campos que provavelmente existem
-> mas não foram mencionados explicitamente na transcrição]
-
-### Campos preenchidos automaticamente pelo sistema
-
-| Label PO | Valor | Quando |
-|---|---|---|
-| [campo] | [valor ou ❓] | [momento ou ❓] |
-
-> ❓ Se não houver campos automáticos mencionados: "A reunião não
-> especificou campos preenchidos automaticamente pelo sistema."
+## Descrição
+[Extraído da transcrição. Se não houver descrição clara: ❓ Descrição não
+mencionada na reunião — descrever em uma frase o que esta feature faz.]
 
 ---
 
@@ -161,7 +135,7 @@ descrito na reunião — descrever em uma frase o que esta feature faz.]
 
 ---
 
-## Cenários de comportamento
+## Cenários
 
 ```gherkin
 Feature: [nome da feature]
@@ -204,6 +178,26 @@ Feature: [nome da feature]
   # ❓ Situações especiais do sistema não foram discutidas.
   # Avaliar se há casos como: registro arquivado, período de carência, etc.
 ```
+
+---
+
+## Campos
+
+| Label PO | Tipo | Obrigatório | Validação |
+|---|---|---|---|
+| [campo extraído] | [tipo] | [sim/não/❓] | [regra ou ❓ Não mencionado] |
+
+> ❓ **Campos não confirmados**: [listar campos que provavelmente existem
+> mas não foram mencionados explicitamente na transcrição]
+
+### Campos preenchidos automaticamente pelo sistema
+
+| Label PO | Valor | Quando |
+|---|---|---|
+| [campo] | [valor ou ❓] | [momento ou ❓] |
+
+> ❓ Se não houver campos automáticos mencionados: "A reunião não
+> especificou campos preenchidos automaticamente pelo sistema."
 
 ---
 

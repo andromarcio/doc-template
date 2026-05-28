@@ -81,7 +81,7 @@ Para cada ponto com impacto, formule uma pergunta de esclarecimento —
 
 - **Campos**: novos campos são necessários? Algum campo sai ou muda?
 - **Regras de negócio**: a mudança altera regras atuais ou insere uma nova?
-- **Cenários Gherkin**: quais novos cenários surgem? Quais ficam obsoletos?
+- **Cenários**: quais novos cenários surgem? Quais ficam obsoletos?
 - **Comportamento de tela**: a UI precisará de mudanças?
 
 Exemplo de pergunta:

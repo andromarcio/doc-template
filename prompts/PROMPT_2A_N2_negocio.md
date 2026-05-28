@@ -83,14 +83,8 @@ Seções geradas nesta etapa:
 - Telas (tabela: nome, rota, features atendidas)
 - Permissões por perfil (descrição negocial)
 
-Seções deixadas em branco para o PROMPT 2B:
-- Campos consolidados do Feature Set
-- Endpoints
-- Códigos de erro
-- Eventos
-
 Após apresentar, pergunte:
-> "O N2 negocial de [Feature Set] está correto?
+> "O N2 de [Feature Set] está correto?
 > Ajusta algo ou avanço para o próximo Feature Set?"
 
 Repita o Passo 2 para cada Feature Set que eu indicar.
@@ -100,6 +94,5 @@ Repita o Passo 2 para cada Feature Set que eu indicar.
 ## PASSO 3 — Confirmação de cobertura
 
 Após todos os Feature Sets do domínio aprovados, confirme:
-> "Todos os Feature Sets do domínio [nome] foram detalhados negocialmente.
-> Para complementar com campos, endpoints e eventos,
-> use o PROMPT_2B passando cada README.md gerado aqui como contexto."
+> "Todos os Feature Sets do domínio [nome] foram detalhados.
+> Para especificar as features individualmente, use o PROMPT_3A."
