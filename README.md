@@ -13,7 +13,7 @@ Toda decisão de negócio e arquitetura começa aqui, antes de qualquer linha de
 3. Abra um PR com o artefato gerado para revisão antes de avançar
 
 ### Para o Dev
-1. Após aprovação negocial, use os prompts prefixados com `B` (PROMPT_1B, PROMPT_2B, PROMPT_3B, PROMPT_4B)
+1. Após aprovação negocial, use os prompts prefixados com `B` (PROMPT_1B, PROMPT_3B, PROMPT_4B)
 2. Cole apenas o fragmento `global/data-models/[dominio].md` relevante — não o DATA-MODEL inteiro
 3. Campos novos → `global/data-models/[dominio].md`. Erros novos → `global/ERROR-DICTIONARY.md`
 4. Ao implementar: preencha a seção `Implementação` no N3 e atualize `modules/INDEX.md`
@@ -29,7 +29,7 @@ Toda decisão de negócio e arquitetura começa aqui, antes de qualquer linha de
 PO:  PROMPT_1A → N1 negocial → revisão → aprovação
 Dev: PROMPT_1B → N1 técnico + data-models/[dominio].md atualizado
 
-PO:  PROMPT_2A → N2 negocial → revisão → aprovação
+PO:  PROMPT_2A → N2 → revisão → aprovação
 
 PO:  PROMPT_3A → N3 negocial → revisão → aprovação
 Dev: PROMPT_3B → N3 técnico + data-models/[dominio].md atualizado
@@ -76,6 +76,7 @@ Dev: PROMPT_4B → atualização técnica + verificação de breaking changes
 │   ├── PROMPT_1A_N1_negocio.md
 │   ├── PROMPT_1B_N1_tecnico.md
 │   ├── PROMPT_2A_N2_negocio.md
+│   ├── PROMPT_2B_N2_tecnico.md           ← ⚠️ Deprecado — N2 é gerado completo pelo 2A
 │   ├── PROMPT_3A_N3_negocio.md
 │   ├── PROMPT_3A_N3_negocio_transcricao.md
 │   ├── PROMPT_3B_N3_tecnico.md
