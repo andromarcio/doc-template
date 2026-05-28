@@ -22,13 +22,13 @@
 
 | Elemento APF | Definição | Onde identificar nesta estrutura |
 |---|---|---|
-| ALF (Arquivo Lógico Interno) | Grupo de dados mantido pelo sistema | `global/DATA-MODEL.md` — uma entidade principal = um ALF candidato |
+| ALI (Arquivo Lógico Interno) | Grupo de dados mantido pelo sistema | `global/DATA-MODEL.md` — uma entidade principal = um ALI candidato |
 | AIE (Arquivo de Interface Externa) | Grupo de dados de sistema externo usado mas não mantido | `global/API-PATTERNS.md` + seção "Integrações" do N1 |
 | EE (Entrada Externa) | Transação que processa dados de fora para dentro | `## API` do N3 — verbos POST / PUT / PATCH / DELETE |
 | SE (Saída Externa) | Transação que envia dados com lógica de processamento | `## API` do N3 — GET com cálculo, relatório ou transformação |
 | CE (Consulta Externa) | Transação que recupera dados sem lógica adicional | `## API` do N3 — GET simples de listagem ou detalhe |
 
-### Critério de complexidade — Funções de Dados (ALF / AIE)
+### Critério de complexidade — Funções de Dados (ALI / AIE)
 
 | RET \ DET | 1–19 | 20–50 | 51+ |
 |---|---|---|---|
@@ -48,14 +48,14 @@ Campos automáticos do sistema (createdAt, updatedAt, id, organizationId) = **n�
 | 2–3 | Baixa | Média | Alta |
 | 4+ | Média | Alta | Alta |
 
-**Como contar FTR**: número de ALFs ou AIEs lidos ou mantidos pela transação — identificável pela seção `## Dependências` e pelas tabelas referenciadas no `## API` do N3.
+**Como contar FTR**: número de ALIs ou AIEs lidos ou mantidos pela transação — identificável pela seção `## Dependências` e pelas tabelas referenciadas no `## API` do N3.
 **Como contar DET**: campos no body/query da requisição + campos na resposta de sucesso. Campos de controle (HTTP status, organizationId, cursor de paginação) = **não contam**.
 
 ### Tabela de pontos por complexidade
 
 | Tipo | Baixa | Média | Alta |
 |---|---|---|---|
-| ALF | 7 | 10 | 15 |
+| ALI | 7 | 10 | 15 |
 | AIE | 5 | 7 | 10 |
 | EE | 3 | 4 | 6 |
 | SE | 4 | 5 | 7 |
@@ -71,8 +71,8 @@ Campos automáticos do sistema (createdAt, updatedAt, id, organizationId) = **n�
 |---|---|---|
 | Entry (E) | Dado movendo-se de fora do processo para dentro | Campo no body/query do `## API` do N3 |
 | Exit (X) | Dado movendo-se de dentro do processo para fora | Campo na resposta do `## API` do N3 |
-| Read (R) | Leitura de dado persistido | Cada ALF/AIE consultado pela transação |
-| Write (W) | Escrita de dado persistido | Cada ALF criado, alterado ou removido pela transação |
+| Read (R) | Leitura de dado persistido | Cada ALI/AIE consultado pela transação |
+| Write (W) | Escrita de dado persistido | Cada ALI criado, alterado ou removido pela transação |
 
 **1 CFP = 1 movimento (E, X, R ou W)**
 
@@ -81,8 +81,8 @@ Campos automáticos do sistema (createdAt, updatedAt, id, organizationId) = **n�
 - **Granularidade**: contar por endpoint documentado no `## API` do N3.
 - **Entry**: cada campo distinto no body ou query params = 1 E. Campos de controle (authorization header, organizationId via JWT, cursor) = **não contam**.
 - **Exit**: cada campo distinto na resposta de sucesso = 1 X. Envelope padrão (`data`, `meta`, `error`) = **não conta**, apenas os campos de negócio internos.
-- **Read**: cada entidade/ALF lida para processar ou responder = 1 R. Leituras de validação (verificar duplicata, checar permissão) = **contam**.
-- **Write**: cada entidade/ALF criada, atualizada ou removida = 1 W. Soft delete = 1 W.
+- **Read**: cada entidade/ALI lida para processar ou responder = 1 R. Leituras de validação (verificar duplicata, checar permissão) = **contam**.
+- **Write**: cada entidade/ALI criada, atualizada ou removida = 1 W. Soft delete = 1 W.
 - **Eventos publicados** (`## Eventos` do N3): cada evento publicado implica 1 X adicional.
 - **Eventos consumidos** (`## Eventos` do N3): cada evento consumido implica 1 E adicional por campo relevante no payload.
 
@@ -128,7 +128,7 @@ Features `❌ Deprecadas` são excluídas do total vigente mas mantidas no hist�
 |---|---|
 | APF | Análise de Pontos de Função |
 | PF | Ponto de Função |
-| ALF | Arquivo Lógico Interno |
+| ALI | Arquivo Lógico Interno |
 | AIE | Arquivo de Interface Externa |
 | EE | Entrada Externa |
 | SE | Saída Externa |
@@ -150,9 +150,9 @@ Features `❌ Deprecadas` são excluídas do total vigente mas mantidas no hist�
 
 ---
 
-## Como manter o registro de ALFs sincronizado
+## Como manter o registro de ALIs sincronizado
 
-O registro central de ALFs vive em `global/DATA-MODEL.md → ## Arquivos Lógicos (APF)`.
+O registro central de ALIs vive em `global/DATA-MODEL.md → ## Arquivos Lógicos (APF)`.
 A fonte de cálculo vive nos fragmentos `global/data-models/[dominio].md → ## Arquivos Lógicos deste domínio`.
 
 Fluxo de atualização:
@@ -160,9 +160,9 @@ Fluxo de atualização:
 ```
 Nova entidade criada (PROMPT_3B)
           │
-          ├─→ Definir a qual ALF pertence
-          │        ├─ ALF existente → anotar cabeçalho da entidade + recalcular DET/RET
-          │        └─ ALF novo      → criar linha no fragmento + anotar cabeçalho
+          ├─→ Definir a qual ALI pertence
+          │        ├─ ALI existente → anotar cabeçalho da entidade + recalcular DET/RET
+          │        └─ ALI novo      → criar linha no fragmento + anotar cabeçalho
           │
           ├─→ Atualizar seção "## Arquivos Lógicos" no fragmento data-models/[dominio].md
           │

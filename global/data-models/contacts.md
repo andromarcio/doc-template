@@ -2,13 +2,13 @@
 > Fragmento do DATA-MODEL.md — cole apenas este arquivo nas sessões
 > que envolvam o domínio Contacts.
 >
-> **ALFs deste domínio**: Contato · Importação de Contatos
+> **ALIs deste domínio**: Contato · Importação de Contatos
 > Detalhes de contagem: seção `## Arquivos Lógicos` no rodapé deste arquivo.
 
 ---
 
 ## Contact
-> **ALF: Contato** · entidade principal
+> **ALI: Contato** · entidade principal
 
 | Label PO | Label Dev | Campo banco | Tipo SQL | Obrigatório | Notas |
 |---|---|---|---|---|---|
@@ -25,7 +25,7 @@
 ---
 
 ## Tag
-> **ALF: Contato** · entidade de suporte (subgrupo de Contact)
+> **ALI: Contato** · entidade de suporte (subgrupo de Contact)
 
 | Label PO | Label Dev | Campo banco | Tipo SQL | Obrigatório | Notas |
 |---|---|---|---|---|---|
@@ -35,7 +35,7 @@
 ---
 
 ## SmartList
-> **ALF: Contato** · entidade de suporte (subgrupo de Contact)
+> **ALI: Contato** · entidade de suporte (subgrupo de Contact)
 
 | Label PO | Label Dev | Campo banco | Tipo SQL | Obrigatório | Notas |
 |---|---|---|---|---|---|
@@ -46,7 +46,7 @@
 ---
 
 ## ImportJob
-> **ALF: Importação de Contatos** · entidade principal
+> **ALI: Importação de Contatos** · entidade principal
 
 | Label PO | Label Dev | Campo banco | Tipo SQL | Obrigatório | Notas |
 |---|---|---|---|---|---|
@@ -69,17 +69,17 @@
 > DET calculado excluindo os 5 campos globais (id, organizationId, createdAt, updatedAt, deletedAt).
 > Critérios de complexidade: ver `global/SIZING.md`.
 
-| ALF | Tipo | Entidades constituintes | RET | DET | Complexidade | PF |
+| ALI | Tipo | Entidades constituintes | RET | DET | Complexidade | PF |
 |---|---|---|---|---|---|---|
-| Contato | ALF | Contact (principal) · Tag (subgrupo) · SmartList (subgrupo) | 3 | 14 | Alta | 15 |
-| Importação de Contatos | ALF | ImportJob (principal) | 1 | 11 | Média | 10 |
+| Contato | ALI | Contact (principal) · Tag (subgrupo) · SmartList (subgrupo) | 3 | 14 | Alta | 15 |
+| Importação de Contatos | ALI | ImportJob (principal) | 1 | 11 | Média | 10 |
 
 **Total deste domínio: 25 PF**
 
 <details>
 <summary>Memória de cálculo</summary>
 
-**ALF: Contato**
+**ALI: Contato**
 - RET: 3 (Contact · Tag · SmartList são subgrupos lógicos distintos)
 - DET Contact: fullName, email, phone, ownerId, source, tags, notes = 7
 - DET Tag: name, color = 2
@@ -87,7 +87,7 @@
 - DET total: 12 campos de negócio + 2 FKs de relacionamento (ownerId, createdBy já contados) = **14**
 - Complexidade: RET 3 × DET 14 → tabela SIZING.md → **Alta → 15 PF**
 
-**ALF: Importação de Contatos**
+**ALI: Importação de Contatos**
 - RET: 1 (ImportJob, sem subgrupos)
 - DET: status, totalRows, importedCount, skippedCount, errorCount, fileKey, columnMapping, defaultOwnerId, skipHeader, errorReport, createdBy = **11**
 - Complexidade: RET 1 × DET 11 → tabela SIZING.md → **Média → 10 PF**

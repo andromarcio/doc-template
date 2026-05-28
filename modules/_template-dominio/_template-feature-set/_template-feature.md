@@ -256,7 +256,7 @@ logAction({
 |---|---|---|---|
 | [ex: POST /api/v1/[rota]] | EE | Baixa / Média / Alta | [3/4/6] |
 | [ex: GET /api/v1/[rota]] | CE | Baixa / Média / Alta | [3/4/6] |
-| [ex: Entidade [Nome]] | ALF | Baixa / Média / Alta | [7/10/15] |
+| [ex: Entidade [Nome]] | ALI | Baixa / Média / Alta | [7/10/15] |
 
 **Total: [N] PF**
 

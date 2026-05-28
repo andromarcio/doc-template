@@ -114,18 +114,18 @@ ImportJob 1──N Contact (criados pela importação)
 
 ## Arquivos Lógicos (APF)
 
-> Registro central de ALFs e AIEs do sistema.
+> Registro central de ALIs e AIEs do sistema.
 > Mantido via atualização dos fragmentos `global/data-models/[dominio].md`.
 > A contagem de DET **exclui** os 5 campos globais (id, organizationId, createdAt, updatedAt, deletedAt).
 > Critérios de complexidade: ver `global/SIZING.md`.
 
-### ALFs — Arquivos Lógicos Internos
+### ALIs — Arquivos Lógicos Internos
 
-| ALF | Domínio | Entidades constituintes | RET | DET | Complexidade | PF |
+| ALI | Domínio | Entidades constituintes | RET | DET | Complexidade | PF |
 |---|---|---|---|---|---|---|
-| [Nome do ALF] | [Domínio] | [Entidade1], [Entidade2] | [N] | [N] | Baixa / Média / Alta | [7/10/15] |
+| [Nome do ALI] | [Domínio] | [Entidade1], [Entidade2] | [N] | [N] | Baixa / Média / Alta | [7/10/15] |
 
-**Total ALFs: [N] PF**
+**Total ALIs: [N] PF**
 
 ### AIEs — Arquivos de Interface Externa
 
@@ -139,8 +139,8 @@ ImportJob 1──N Contact (criados pela importação)
 
 > ℹ️ **Como manter esta seção**
 > 1. Ao criar ou alterar uma entidade num fragmento `data-models/[dominio].md`,
->    atualize a linha do ALF correspondente (RET, DET, Complexidade, PF).
-> 2. Se uma nova entidade formar um ALF novo, adicione a linha aqui
->    **e** anote o ALF no cabeçalho da entidade no fragmento do domínio.
+>    atualize a linha do ALI correspondente (RET, DET, Complexidade, PF).
+> 2. Se uma nova entidade formar um ALI novo, adicione a linha aqui
+>    **e** anote o ALI no cabeçalho da entidade no fragmento do domínio.
 > 3. Entidades de suporte (tabelas de junção, tabelas de auditoria) geralmente
->    não formam ALF próprio — pertencem ao ALF da entidade principal.
+>    não formam ALI próprio — pertencem ao ALI da entidade principal.
