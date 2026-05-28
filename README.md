@@ -58,11 +58,8 @@ Dev: PROMPT_4B → atualização técnica + verificação de breaking changes
 │   ├── DESIGN-SYSTEM.md               ← Padrões de UI
 │   ├── DATA-MODEL.md                  ← Índice + campos globais + enums
 │   ├── data-models/                   ← Fragmentos por domínio (cole só o relevante)
-│   │   ├── identity.md
-│   │   ├── contacts.md
-│   │   ├── communication.md
-│   │   ├── work.md
-│   │   └── capture.md
+│   │   ├── model-1.md
+│   │   └── model-2.md
 │   ├── API-PATTERNS.md
 │   ├── ERROR-DICTIONARY.md            ← Fonte única de códigos de erro
 │   ├── FIELD-DICTIONARY.md            ← Campos canônicos (CPF, CEP, e-mail...)
@@ -80,7 +77,6 @@ Dev: PROMPT_4B → atualização técnica + verificação de breaking changes
 │   ├── PROMPT_1A_N1_negocio.md
 │   ├── PROMPT_1B_N1_tecnico.md
 │   ├── PROMPT_2A_N2_negocio.md
-│   ├── PROMPT_2B_N2_tecnico.md
 │   ├── PROMPT_3A_N3_negocio.md
 │   ├── PROMPT_3A_N3_negocio_transcricao.md
 │   ├── PROMPT_3B_N3_tecnico.md
