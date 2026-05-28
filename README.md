@@ -30,7 +30,6 @@ PO:  PROMPT_1A → N1 negocial → revisão → aprovação
 Dev: PROMPT_1B → N1 técnico + data-models/[dominio].md atualizado
 
 PO:  PROMPT_2A → N2 negocial → revisão → aprovação
-Dev: PROMPT_2B → N2 técnico completo
 
 PO:  PROMPT_3A → N3 negocial → revisão → aprovação
 Dev: PROMPT_3B → N3 técnico + data-models/[dominio].md atualizado
