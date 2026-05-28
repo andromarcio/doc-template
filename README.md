@@ -49,45 +49,63 @@ Dev: PROMPT_4B → atualização técnica + verificação de breaking changes
 ```
 [projeto]-docs/
 ├── README.md
-├── N0_PRODUCT_VISION.md               ← Visão estratégica, personas, KPIs
+├── N0_PRODUCT_VISION.md                       ← Visão estratégica, personas, KPIs
 ├── .github/
 │   └── pull_request_template.md
 ├── global/
-│   ├── MASTER.md                      ← Stack, convenções globais
-│   ├── DESIGN-SYSTEM.md               ← Padrões de UI
-│   ├── DATA-MODEL.md                  ← Índice + campos globais + enums
-│   ├── data-models/                   ← Fragmentos por domínio (cole só o relevante)
-│   │   ├── model-1.md
-│   │   └── model-2.md
+│   ├── MASTER.md                              ← Stack, convenções globais
+│   ├── DESIGN-SYSTEM.md                       ← Padrões de UI
+│   ├── DATA-MODEL.md                          ← Índice + campos globais + enums
+│   ├── SIZING.md                              ← Critérios APF para contagem de PF
 │   ├── API-PATTERNS.md
-│   ├── ERROR-DICTIONARY.md            ← Fonte única de códigos de erro
-│   ├── FIELD-DICTIONARY.md            ← Campos canônicos (CPF, CEP, e-mail...)
-│   └── RULES-DICTIONARY.md            ← Regras de negócio canônicas
+│   ├── ERROR-DICTIONARY.md                    ← Fonte única de códigos de erro
+│   ├── FIELD-DICTIONARY.md                    ← Campos canônicos (CPF, CEP, e-mail...)
+│   ├── RULES-DICTIONARY.md                    ← Regras de negócio canônicas
+│   └── data-models/                           ← Fragmentos por domínio (cole só o relevante)
+│       ├── _template-dominio.md               ← Template para novos domínios
+│       ├── identity.md
+│       ├── contacts.md
+│       ├── communication.md
+│       ├── work.md
+│       └── capture.md
 ├── modules/
-│   ├── INDEX.md                       ← Rastreabilidade spec → código
+│   ├── INDEX.md                               ← Rastreabilidade spec → código
+│   ├── _template-dominio/                     ← Templates de artefatos
+│   │   ├── README.md                          ← Template N1
+│   │   └── _template-feature-set/
+│   │       ├── README.md                      ← Template N2
+│   │       └── _template-feature.md           ← Template N3
 │   └── [dominio]/
-│       ├── README.md                  ← N1
+│       ├── README.md                          ← N1
 │       └── [feature-set]/
-│           ├── README.md              ← N2
-│           └── [feature].md           ← N3
+│           ├── README.md                      ← N2
+│           └── [feature].md                   ← N3
+├── prototypes/
+│   └── [feature-set]/
+│       └── [feature]/                         ← HTMLs navegáveis gerados pelos prompts de protótipo
 ├── prompts/
 │   ├── SYSTEM_PROMPT_analista_requisitos.md
-│   ├── PROMPT_0_EXTRACTION.md         ← Extração de insumos desestruturados
+│   ├── PROMPT_MENU.md                         ← Orquestrador de sessões (ponto de entrada)
+│   ├── PROMPT_0_EXTRACTION.md                 ← Extração de insumos desestruturados
 │   ├── PROMPT_1A_N1_negocio.md
 │   ├── PROMPT_1B_N1_tecnico.md
 │   ├── PROMPT_2A_N2_negocio.md
-│   ├── PROMPT_2B_N2_tecnico.md           ← ⚠️ Deprecado — N2 é gerado completo pelo 2A
+│   ├── PROMPT_2B_N2_tecnico.md                ← ⚠️ Deprecado — N2 é gerado completo pelo 2A
 │   ├── PROMPT_3A_N3_negocio.md
-│   ├── PROMPT_3A_N3_negocio_transcricao.md
+│   ├── PROMPT_3A_N3_negocio_transcricao.md    ← N3 a partir de transcrição de reunião
 │   ├── PROMPT_3B_N3_tecnico.md
-│   ├── PROMPT_4A_N3_UPDATE_negocio.md ← Manutenção de N3 existente (PO)
-│   ├── PROMPT_4B_N3_UPDATE_tecnico.md ← Manutenção de N3 existente (Dev)
-│   ├── PROMPT_QA.md                   ← Geração de testes E2E
-│   ├── PROMPT_PROTOTYPE_FLOW_FULL.md      ← fluxo completo (sidebar + topbar)
-│   ├── PROMPT_PROTOTYPE_FLOW_COMPONENT.md ← fluxo só da área de conteúdo
-│   ├── PROMPT_PROTOTYPE_SCREEN_FULL.md    ← estados completos (sidebar + topbar)
-│   ├── PROMPT_PROTOTYPE_SCREEN_COMPONENT.md ← estados só da área de conteúdo
-│   └── PROMPT_SDD.md
+│   ├── PROMPT_4A_N3_UPDATE_negocio.md         ← Manutenção de N3 existente (PO)
+│   ├── PROMPT_4B_N3_UPDATE_tecnico.md         ← Manutenção de N3 existente (Dev)
+│   ├── PROMPT_QA.md                           ← Geração de plano de testes E2E
+│   ├── PROMPT_SDD.md                          ← Documento de design técnico
+│   ├── PROMPT_REPO_MAPPING.md                 ← Mapeamento de repositórios (Brownfield)
+│   ├── PROMPT_REVERSE_ENGINEERING.md          ← Extração de specs a partir de código
+│   ├── PROMPT_PROTOTYPE_FLOW.md               ← Protótipo de fluxo a partir do N2
+│   ├── PROMPT_PROTOTYPE_FLOW_FULL.md          ← Fluxo completo (sidebar + topbar)
+│   ├── PROMPT_PROTOTYPE_FLOW_COMPONENT.md     ← Fluxo só da área de conteúdo
+│   ├── PROMPT_PROTOTYPE_SCREEN.md             ← Protótipo de estados a partir do N3
+│   ├── PROMPT_PROTOTYPE_SCREEN_FULL.md        ← Estados completos (sidebar + topbar)
+│   └── PROMPT_PROTOTYPE_SCREEN_COMPONENT.md   ← Estados só da área de conteúdo
 ├── decisions/
 │   └── ADR-000-template.md
 ├── changelogs/
