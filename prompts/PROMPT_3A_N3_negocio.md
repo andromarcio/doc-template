@@ -176,11 +176,11 @@ Scenario: [situação específica]
 ```
 
 Seções geradas nesta etapa:
-- Objetivo
+- Descrição
+- Regras de negócio
+- Cenários (Gherkin — grupos negociais)
 - Campos (Label PO | Tipo | Obrigatório | Validação)
 - Campos automáticos (Label PO | Valor | Quando)
-- Regras de negócio
-- Cenários Gherkin — grupos negociais
 - Comportamento de tela
 
 Seções deixadas em branco para o PROMPT 3B:

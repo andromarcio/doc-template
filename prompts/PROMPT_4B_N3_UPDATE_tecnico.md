@@ -113,7 +113,7 @@ Se houver campos novos aprovados, liste-os para adição ao fragmento do domíni
 
 Atualize apenas as seções técnicas (`dev-only`) afetadas:
 - Mapeamento de campos: atualizar referência ao data-models se entidade mudou
-- Cenários Gherkin técnicos: adicionar/remover conforme mudanças
+- Cenários técnicos adicionais: adicionar/remover conforme mudanças
 - Mapeamento de erros: verificar no ERROR-DICTIONARY.md; propor novos com ⚠️
 - API: atualizar endpoints afetados (body, response, erros)
 - Eventos: atualizar se payload mudou

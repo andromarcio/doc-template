@@ -14,13 +14,20 @@
 
 ## Rastreabilidade: spec → código
 
-| Feature | Domínio | Status | Repositórios |
-|---|---|---|---|
-| [Feature] | [Domínio] | 📋 Especificado | — |
-| [Feature] | [Domínio] | 🔄 Em desenvolvimento | [repo] |
-| [Feature] | [Domínio] | ✅ Implementado | [repo1], [repo2] |
-| [Feature] | [Domínio] | ⚠️ Revisão necessária | [repo] |
-| [Feature] | [Domínio] | ❌ Deprecado | — |
+| Feature | Domínio | Status | PF | CFP | Repositórios |
+|---|---|---|---|---|---|
+| [Feature] | [Domínio] | 📋 Especificado | [N] | [N] | — |
+| [Feature] | [Domínio] | 🔄 Em desenvolvimento | [N] | [N] | [repo] |
+| [Feature] | [Domínio] | ✅ Implementado | [N] | [N] | [repo1], [repo2] |
+| [Feature] | [Domínio] | ⚠️ Revisão necessária | [N] | [N] | [repo] |
+| [Feature] | [Domínio] | ❌ Deprecado | — | — | — |
+
+<!--
+  PF e CFP: preencher após PROMPT_3B. Ver critérios em global/SIZING.md.
+  Totais vigentes excluem features ❌ Deprecadas.
+-->
+
+**Total vigente: [N] PF · [N] CFP**
 
 ---
 

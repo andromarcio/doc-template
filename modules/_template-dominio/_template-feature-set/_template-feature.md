@@ -7,34 +7,12 @@
   ─────────────────────────────────────────────────────────────────
 -->
 
-# Feature: [Nome da Feature]
+# [Nome da Feature]
 > **Nível 3** — Feature Set: [Nome do Feature Set] — Domínio: [Nome do Domínio]
 
-## Objetivo
+## Descrição
 [Descrição em 1-2 frases do que esta feature faz, em linguagem de negócio,
 para alguém que nunca viu o sistema.]
-
----
-
-## Campos
-
-<!--
-  Esta tabela usa apenas Label PO e regras em linguagem de negócio.
-  A nomenclatura técnica (Label Dev e campo banco) está centralizada
-  no DATA-MODEL.md — não duplicar aqui.
--->
-
-| Label PO | Tipo | Obrigatório | Validação |
-|---|---|---|---|
-| [Nome do campo em português] | [texto / número / data / lista de opções / sim·não / arquivo] | sim / não / automático | [regras em linguagem natural] |
-
-*[Notas sobre dependências entre campos, se houver.]*
-
-### Campos preenchidos automaticamente pelo sistema
-
-| Label PO | Valor | Quando |
-|---|---|---|
-| [campo] | [valor fixo ou calculado em linguagem natural] | [momento — ex: "no momento do salvamento"] |
 
 ---
 
@@ -54,7 +32,7 @@ para alguém que nunca viu o sistema.]
 
 ---
 
-## Cenários de comportamento
+## Cenários
 
 ```gherkin
 Feature: [Nome da feature em linguagem natural]
@@ -105,6 +83,28 @@ Feature: [Nome da feature em linguagem natural]
     Then [comportamento alterado]
     And o sistema exibe: "[mensagem contextual]"
 ```
+
+---
+
+## Campos
+
+<!--
+  Esta tabela usa apenas Label PO e regras em linguagem de negócio.
+  A nomenclatura técnica (Label Dev e campo banco) está centralizada
+  no DATA-MODEL.md — não duplicar aqui.
+-->
+
+| Label PO | Tipo | Obrigatório | Validação |
+|---|---|---|---|
+| [Nome do campo em português] | [texto / número / data / lista de opções / sim·não / arquivo] | sim / não / automático | [regras em linguagem natural] |
+
+*[Notas sobre dependências entre campos, se houver.]*
+
+### Campos preenchidos automaticamente pelo sistema
+
+| Label PO | Valor | Quando |
+|---|---|---|
+| [campo] | [valor fixo ou calculado em linguagem natural] | [momento — ex: "no momento do salvamento"] |
 
 ---
 
@@ -239,6 +239,24 @@ logAction({
 - **[Lib/Serviço]** — [para que é usado]
 
 </div>
+
+---
+
+## Métricas de tamanho
+
+<!--
+  Preencher após aprovação do N3 técnico (PROMPT_3B) e antes do início do desenvolvimento.
+  Responsável: Dev que especificou o N3. Revisão: Tech Lead do domínio.
+  Critérios de contagem: ver global/SIZING.md
+-->
+
+| Endpoint / Função de dados | Tipo | Complexidade | PF |
+|---|---|---|---|
+| [ex: POST /api/v1/[rota]] | EE | Baixa / Média / Alta | [3/4/6] |
+| [ex: GET /api/v1/[rota]] | CE | Baixa / Média / Alta | [3/4/6] |
+| [ex: Entidade [Nome]] | ALI | Baixa / Média / Alta | [7/10/15] |
+
+**Total: [N] PF**
 
 ---
 

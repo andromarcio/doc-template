@@ -175,15 +175,13 @@ Após aprovação, gere o arquivo completo:
 
 **Estrutura obrigatória**:
 ```
-[comentário de visibilidade]
+# [Nome]
 
-# Feature: [Nome]
-
-## Objetivo                          ← negocial
+## Descrição                         ← negocial
+## Regras de negócio                 ← negocial (com refs. aos dicionários)
+## Cenários                          ← negocial (grupos negociais + marcadores)
 ## Campos                            ← negocial (Label PO | Tipo | Obrig. | Validação)
 ## Campos automáticos                ← negocial (Label PO | Valor | Quando)
-## Regras de negócio                 ← negocial (com refs. aos dicionários)
-## Cenários de comportamento         ← negocial (grupos negociais + marcadores)
 ## Comportamento de tela             ← negocial
 
 <div class="dev-only">
@@ -197,6 +195,7 @@ Após aprovação, gere o arquivo completo:
 ## Dependências                      ← técnico
 </div>
 
+## Métricas de tamanho               ← APF (sem COSMIC)
 ## Implementação                     ← rastreabilidade (preenchido após dev)
 ```
 

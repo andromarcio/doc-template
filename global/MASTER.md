@@ -139,3 +139,17 @@ Os N3 usam apenas Label PO — nunca duplicam as camadas técnicas.
 - Lançar exceções cruas — sempre retornar envelope de erro padronizado
 - Chamar diretamente outro módulo — usar eventos internos
 - Duplicar Label Dev ou campo banco nos N3 — essas informações vivem apenas no DATA-MODEL.md
+---
+
+## Arquivos globais de referência
+
+| Arquivo | Propósito |
+|---|---|
+| `global/MASTER.md` | Stack, convenções globais (este arquivo) |
+| `global/DATA-MODEL.md` | Índice de entidades + campos globais + enums |
+| `global/SIZING.md` | Convenções de contagem APF e COSMIC |
+| `global/RULES-DICTIONARY.md` | Regras de negócio canônicas |
+| `global/FIELD-DICTIONARY.md` | Campos canônicos (CPF, CEP, e-mail…) |
+| `global/ERROR-DICTIONARY.md` | Fonte única de códigos de erro |
+| `global/API-PATTERNS.md` | Padrões de API |
+| `global/DESIGN-SYSTEM.md` | Padrões de UI |

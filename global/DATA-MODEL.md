@@ -109,3 +109,38 @@ ImportJob 1──N Contact (criados pela importação)
 | contacts | (organization_id) | INDEX | Listagens frequentes |
 | tasks | (organization_id, assigned_to) | INDEX | Filtro por responsável |
 | messages | (organization_id, contact_id) | INDEX | Histórico por contato |
+
+---
+
+## Arquivos Lógicos (APF)
+
+> Registro central de ALIs e AIEs do sistema.
+> Mantido via atualização dos fragmentos `global/data-models/[dominio].md`.
+> A contagem de DET **exclui** os 5 campos globais (id, organizationId, createdAt, updatedAt, deletedAt).
+> Critérios de complexidade: ver `global/SIZING.md`.
+
+### ALIs — Arquivos Lógicos Internos
+
+| ALI | Domínio | Entidades constituintes | RET | DET | Complexidade | PF |
+|---|---|---|---|---|---|---|
+| [Nome do ALI] | [Domínio] | [Entidade1], [Entidade2] | [N] | [N] | Baixa / Média / Alta | [7/10/15] |
+
+**Total ALIs: [N] PF**
+
+### AIEs — Arquivos de Interface Externa
+
+| AIE | Sistema externo | Entidades / estruturas usadas | RET | DET | Complexidade | PF |
+|---|---|---|---|---|---|---|
+| [Nome da AIE] | [ex: SendGrid, Twilio] | [estrutura de dados] | [N] | [N] | Baixa / Média / Alta | [5/7/10] |
+
+**Total AIEs: [N] PF**
+
+---
+
+> ℹ️ **Como manter esta seção**
+> 1. Ao criar ou alterar uma entidade num fragmento `data-models/[dominio].md`,
+>    atualize a linha do ALI correspondente (RET, DET, Complexidade, PF).
+> 2. Se uma nova entidade formar um ALI novo, adicione a linha aqui
+>    **e** anote o ALI no cabeçalho da entidade no fragmento do domínio.
+> 3. Entidades de suporte (tabelas de junção, tabelas de auditoria) geralmente
+>    não formam ALI próprio — pertencem ao ALI da entidade principal.
