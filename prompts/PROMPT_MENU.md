@@ -42,8 +42,11 @@ Olá! Sou o assistente de documentação. Escolha o que deseja fazer:
 |---|---|---|
 | **R0** | Mapear repositórios | Mapeia múltiplos repos para a estrutura FDD e gera `repos/INDEX.md` |
 | **R1** | Extrair specs do código | Lê código de um repositório e gera rascunhos de DATA-MODEL, N1, N2 e N3 |
+| **B2** | Sintetizar N2 a partir dos N3s | Gera o README.md de um Feature Set consolidando os N3s existentes |
+| **B1** | Sintetizar N1 a partir dos N2s | Gera o README.md de um Domínio consolidando os N2s (ou N3s) existentes |
 
 > ⚠️ Se o seu sistema não tem documentação, comece por **R0** → **R1** → **3A** (validação com PO)
+> ⚠️ Se os N3s já existem e faltam N2s/N1s, use **B2** → **B1**
 
 ---
 
@@ -82,6 +85,14 @@ Olá! Sou o assistente de documentação. Escolha o que deseja fazer:
 | **3A** | Especificar feature — negócio | PO + Dev | Levanta campos, regras e cenários Gherkin em linguagem de negócio |
 | **3A-T** | Especificar feature — a partir de transcrição | PO + Dev | Extrai a spec negocial de uma transcrição de reunião, sinalizando lacunas |
 | **3B** | Especificar feature — técnico | Dev | Complementa o N3 negocial com API, eventos, AuditLog e mapeamento de campos |
+
+---
+
+### 🔍 Auditoria
+
+| # | Opção | Audiência | O que faz |
+|---|---|---|---|
+| **AU** | Deduplicar regras de negócio | Analista / Tech Lead | Varre N3s e detecta regras duplicadas, sobrepostas ou contraditórias entre features |
 
 ---
 
@@ -138,6 +149,8 @@ apresente o que será necessário fornecer. Use a tabela abaixo.
 |---|---|
 | **R0** | 1. MASTER.md *(se existir)* · 2. Lista de repos (nome, URL, descrição, stack, BD, comunicações) |
 | **R1** | 1. MASTER.md · 2. modules/INDEX.md (do R0) · 3. repos/[repo].md (do R0) · 4. DATA-MODEL.md existente *(se houver)* · 5. Código: modelos · 6. Código: rotas/controllers · 7. Código: serviços · 8. Código: testes *(opcional)* · 9. Código: eventos/workers *(se houver)* |
+| **B2** | 1. N3s do Feature Set (todos) |
+| **B1** | 1. N2s do domínio (todos) · 2. modules/INDEX.md *(opcional, para mapear integrações)* · 3. N3s adicionais sem N2 *(opcional)* |
 | **0** | 1. N0_PRODUCT_VISION.md *(opcional)* · 2. Insumos brutos (texto livre, transcrição, PDF colado) |
 | **1A** | 1. MASTER.md |
 | **1B** | 1. MASTER.md · 2. DATA-MODEL.md · 3. API-PATTERNS.md · 4. N1 negocial aprovado |
@@ -146,6 +159,7 @@ apresente o que será necessário fornecer. Use a tabela abaixo.
 | **3A** | 1. MASTER.md · 2. DESIGN-SYSTEM.md · 3. FIELD-DICTIONARY.md · 4. RULES-DICTIONARY.md · 5. N1 · 6. N2 |
 | **3A-T** | 1. MASTER.md · 2. DESIGN-SYSTEM.md · 3. FIELD-DICTIONARY.md · 4. RULES-DICTIONARY.md · 5. N1 · 6. N2 · 7. Transcrição da reunião |
 | **3B** | 1. MASTER.md · 2. DATA-MODEL do domínio · 3. API-PATTERNS.md · 4. ERROR-DICTIONARY.md · 5. FIELD-DICTIONARY.md · 6. RULES-DICTIONARY.md · 7. N1 · 8. N2 · 9. N3 negocial aprovado |
+| **AU** | 1. RULES-DICTIONARY.md · 2. Trechos de regras transversais dos N1s relevantes · 3. N3s a varrer |
 | **4A** | 1. MASTER.md · 2. FIELD-DICTIONARY.md · 3. RULES-DICTIONARY.md · 4. N3 existente completo |
 | **4B** | 1. MASTER.md · 2. DATA-MODEL do domínio · 3. API-PATTERNS.md · 4. ERROR-DICTIONARY.md · 5. FIELD-DICTIONARY.md · 6. RULES-DICTIONARY.md · 7. N1 · 8. N2 · 9. N3 original completo · 10. N3 negocial atualizado (do 4A) |
 | **5A** | 1. MASTER.md · 2. DESIGN-SYSTEM.md · 3. DATA-MODEL.md (índice) · 4. API-PATTERNS.md · 5. FIELD-DICTIONARY.md · 6. RULES-DICTIONARY.md · 7. N1(s) · 8. N2(s) · 9. N3(s) a implementar |
@@ -201,6 +215,9 @@ incluindo o controle de estados interno de cada prompt (INICIALIZACAO, COLETA_CA
 |---|---|
 | R0 | PROMPT_REPO_MAPPING.md |
 | R1 | PROMPT_REVERSE_ENGINEERING.md |
+| B2 | PROMPT_N3_TO_N2.md |
+| B1 | PROMPT_N3_TO_N1.md |
+| AU | PROMPT_AUDIT_RULES_DEDUP.md |
 | 0 | PROMPT_0_EXTRACTION.md |
 | 1A | PROMPT_1A_N1_negocio.md |
 | 1B | PROMPT_1B_N1_tecnico.md |
@@ -256,5 +273,6 @@ Se um insumo obrigatório não estiver disponível, oriente como obtê-lo:
 | MASTER.md | "Preencha o template em `global/MASTER.md` do repositório de docs." |
 | DATA-MODEL do domínio | "O arquivo fica em `global/data-models/[dominio].md`. Se o domínio ainda não existe, execute a opção **1B** primeiro." |
 | N1 do domínio | "Execute a opção **1A** primeiro para criar o N1 deste domínio." |
-| N2 do Feature Set | "Execute a opção **2A** primeiro para criar o N2 deste Feature Set." |
+| N2 do Feature Set | "Execute a opção **2A** para criar o N2 a partir do zero, ou **B2** para sintetizá-lo a partir dos N3s existentes." |
 | N3 negocial | "Execute a opção **3A** primeiro para criar a spec negocial desta feature." |
+| N3s para varredura (AU) | "Cole os arquivos N3 das features que deseja auditar. Não é obrigatório varrer o sistema inteiro de uma vez." |
