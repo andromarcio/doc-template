@@ -45,16 +45,6 @@
 |---|---|---|
 | [Domínio] | [entidade/campo em Label PO] | [quando ocorre] |
 
-### Eventos publicados por este domínio
-| Evento | Situação | Consumidores |
-|---|---|---|
-| `[entidade.acao]` | [quando é publicado] | [quem consome] |
-
-### Eventos consumidos por este domínio
-| Evento | Publicado por | Reação |
-|---|---|---|
-| `[entidade.acao]` | [Domínio] | [o que faz ao receber] |
-
 ---
 
 <div class="dev-only">
@@ -86,20 +76,6 @@
 | [role] | [permissões resumidas] |
 
 ---
-
-## Endpoints consolidados do domínio
-
-| Método | Rota | Feature Set | Feature |
-|---|---|---|---|
-| `[MÉTODO]` | `/api/v1/[rota]` | [Feature Set] | [Feature] |
-
----
-
-## Códigos de erro do domínio
-
-| Código | HTTP | Feature Set | Situação |
-|---|---|---|---|
-| `[DOMINIO_ERRO]` | [código] | [Feature Set] | [quando ocorre] |
 
 </div>
 

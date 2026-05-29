@@ -80,8 +80,6 @@ Seções geradas nesta etapa:
 Seções deixadas em branco para o PROMPT 1B:
 - Entidades e campos
 - Integrações técnicas
-- Endpoints consolidados
-- Códigos de erro
 
 Após apresentar, pergunte:
 > "O N1 negocial de [domínio] está correto?

@@ -86,9 +86,6 @@ Com as respostas, gere as seções técnicas (sem repetir as negociais):
 - Entidades do domínio (apenas: nome | descrição | → DATA-MODEL.md: [nome])
 - Dependências externas (tabela: serviço, uso, lib)
 - Integrações com outros domínios (leitura e escrita separadas, com tipo de integração)
-- Eventos publicados e consumidos
-- Endpoints consolidados (preliminar)
-- Códigos de erro do domínio (preliminar)
 - Regras de acesso por role
 
 Apresente apenas as seções técnicas. Pergunte:
