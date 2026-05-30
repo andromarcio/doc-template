@@ -259,9 +259,7 @@ logAction({
 
 | Função de Transação | Tipo | Complexidade | PF |
 |---|---|---|---|
-| [ex: POST /api/v1/[rota] — exposto a sistema externo] | EE | Baixa / Média / Alta | [3/4/6] |
-| [ex: GET /api/v1/[rota] — com lógica de transformação] | SE | Baixa / Média / Alta | [4/5/7] |
-| [ex: GET /api/v1/[rota] — listagem ou detalhe simples] | CE | Baixa / Média / Alta | [3/4/6] |
+| [Nome da Feature] | [EE / SE / CE] | Baixa / Média / Alta | [3/4/5/6/7] |
 
 > Endpoints consumidos exclusivamente pelo frontend deste sistema (BFF interno) **não são contados**.
 > Ver critério completo em `global/SIZING.md`.
