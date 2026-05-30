@@ -24,9 +24,9 @@
 |---|---|---|
 | ALI (Arquivo Lógico Interno) | Grupo de dados mantido pelo sistema | `global/DATA-MODEL.md` — uma entidade principal = um ALI candidato |
 | AIE (Arquivo de Interface Externa) | Grupo de dados de sistema externo usado mas não mantido | `global/API-PATTERNS.md` + seção "Integrações" do N1 |
-| EE (Entrada Externa) | Transação que processa dados de fora para dentro | `## API` do N3 — verbos POST / PUT / PATCH / DELETE |
-| SE (Saída Externa) | Transação que envia dados com lógica de processamento | `## API` do N3 — GET com cálculo, relatório ou transformação |
-| CE (Consulta Externa) | Transação que recupera dados sem lógica adicional | `## API` do N3 — GET simples de listagem ou detalhe |
+| EE (Entrada Externa) | Transação que processa dados de fora para dentro | `## API` do N3 — verbos POST / PUT / PATCH / DELETE **expostos além da fronteira lógica do sistema** |
+| SE (Saída Externa) | Transação que envia dados com lógica de processamento | `## API` do N3 — GET com cálculo, relatório ou transformação **exposto além da fronteira lógica** |
+| CE (Consulta Externa) | Transação que recupera dados sem lógica adicional | `## API` do N3 — GET simples de listagem ou detalhe **exposto além da fronteira lógica** |
 
 ### Critério de complexidade — Funções de Dados (ALI / AIE)
 
@@ -95,6 +95,22 @@ Toda feature especificada no N3 deve ter a seção `## Métricas de tamanho` pre
 
 A contagem é responsabilidade do Dev, revisada pelo Tech Lead, e pode ser auditada
 pelo PO com base nos campos e endpoints documentados no mesmo N3.
+
+### Arquitetura BFF (Java + Angular)
+
+Nesta arquitetura, o frontend Angular e o backend Java formam uma única fronteira
+lógica do sistema. Endpoints consumidos exclusivamente pelo próprio frontend
+**não cruzam a fronteira** e, portanto, **não são contados como EE, SE ou CE**.
+
+| Situação do endpoint | Conta como |
+|---|---|
+| Consumido apenas pelo frontend Angular deste sistema | **Não conta** |
+| Consumido por outro sistema (integração, API pública, parceiro) | EE / SE / CE conforme o tipo |
+| Consumido por um worker ou job interno ao sistema | **Não conta** |
+
+**Funções de Dados (ALI / AIE)** não são registradas na seção `## Métricas de tamanho`
+do N3 — vivem centralmente em `global/DATA-MODEL.md` e nos fragmentos
+`global/data-models/[dominio].md`. Ver seção *Como manter o registro de ALIs sincronizado*.
 
 ### Quem conta e quando
 
