@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Your Project</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="logo">Doc Template</h1>
+            </div>
+            <nav class="header-nav">
+                <a href="#" class="nav-link">GitHub</a>
+                <a href="#" class="nav-link">Docs</a>
+                <a href="#" class="nav-link">Support</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Menu</h2>
+                <button class="sidebar-close" id="sidebarClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#inicio" class="nav-item active">
+                        <i class="fas fa-home"></i> Início
+                    </a></li>
+                    <li><a href="#guia" class="nav-item">
+                        <i class="fas fa-book"></i> Guia de Início
+                    </a></li>
+                    <li><a href="#instalacao" class="nav-item">
+                        <i class="fas fa-download"></i> Instalação
+                    </a></li>
+                    <li><a href="#uso" class="nav-item">
+                        <i class="fas fa-cogs"></i> Como Usar
+                    </a></li>
+                    <li><a href="#api" class="nav-item">
+                        <i class="fas fa-code"></i> API
+                    </a></li>
+                    <li><a href="#exemplos" class="nav-item">
+                        <i class="fas fa-flask"></i> Exemplos
+                    </a></li>
+                    <li><a href="#faq" class="nav-item">
+                        <i class="fas fa-question-circle"></i> FAQ
+                    </a></li>
+                    <li><a href="#contato" class="nav-item">
+                        <i class="fas fa-envelope"></i> Contato
+                    </a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>v1.0.0</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section id="inicio" class="hero">
+                <div class="hero-content">
+                    <h1>Bem-vindo ao Doc Template</h1>
+                    <p>Um template moderno e responsivo para documentação profissional</p>
+                    <div class="hero-buttons">
+                        <a href="#guia" class="btn btn-primary">Comece Agora</a>
+                        <a href="#exemplos" class="btn btn-secondary">Ver Exemplos</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Sections -->
+            <section id="guia" class="content-section">
+                <h2>Guia de Início Rápido</h2>
+                <p>Esta é uma documentação profissional com design moderno. Customize os conteúdos conforme necessário.</p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Rápido</h3>
+                        <p>Carregamento otimizado e performance superior</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Responsivo</h3>
+                        <p>Funciona perfeitamente em qualquer dispositivo</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Customizável</h3>
+                        <p>Fácil de personalizar cores e temas</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-accessible-icon"></i>
+                        <h3>Acessível</h3>
+                        <p>Segue padrões WCAG de acessibilidade</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="instalacao" class="content-section">
+                <h2>Instalação</h2>
+                <p>Para começar, clone o repositório:</p>
+                <div class="code-block">
+                    <pre><code>git clone https://github.com/andromarcio/doc-template.git
+cd doc-template
+# Abra o arquivo index.html no seu navegador</code></pre>
+                </div>
+            </section>
+
+            <section id="uso" class="content-section">
+                <h2>Como Usar</h2>
+                <p>Edite o arquivo <code>index.html</code> com seu conteúdo:</p>
+                <ol>
+                    <li>Atualize o título da documentação</li>
+                    <li>Personalize os itens do menu no sidebar</li>
+                    <li>Adicione suas seções de conteúdo</li>
+                    <li>Customize as cores em <code>styles.css</code></li>
+                </ol>
+            </section>
+
+            <section id="api" class="content-section">
+                <h2>API de Exemplo</h2>
+                <p>Documentação de endpoints e funções:</p>
+                <div class="api-item">
+                    <h3>GET /api/data</h3>
+                    <p><strong>Descrição:</strong> Recupera dados do servidor</p>
+                    <p><strong>Resposta:</strong></p>
+                    <div class="code-block">
+                        <pre><code>{
+  "status": "success",
+  "data": { ... }
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="exemplos" class="content-section">
+                <h2>Exemplos de Uso</h2>
+                <p>Aqui você pode adicionar exemplos práticos:</p>
+                <div class="code-block">
+                    <pre><code>// Exemplo de código
+function hello(name) {
+  return `Olá, ${name}!`;
+}
+
+console.log(hello("Mundo"));</code></pre>
+                </div>
+            </section>
+
+            <section id="faq" class="content-section">
+                <h2>Perguntas Frequentes</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3>Como customizar o tema?</h3>
+                        <p>Edite as variáveis CSS no topo do arquivo styles.css</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>É responsivo?</h3>
+                        <p>Sim! O template é totalmente responsivo e funciona em mobile, tablet e desktop</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Preciso de dependências?</h3>
+                        <p>Não! Apenas HTML, CSS e JavaScript puro. Font Awesome é opcional para ícones.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contato" class="content-section">
+                <h2>Contato</h2>
+                <p>Para dúvidas ou sugestões, entre em contato através de:</p>
+                <ul>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/andromarcio">@andromarcio</a></li>
+                    <li><strong>Email:</strong> seu-email@example.com</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Doc Template. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
