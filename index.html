@@ -145,125 +145,90 @@
                         <p>Funciona perfeitamente em qualquer dispositivo</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-paint-brush"></i>
-                        <h3>Customizável</h3>
-                        <p>Fácil de personalizar cores e temas</p>
+                        <i class="fas fa-moon"></i>
+                        <h3>Modo Escuro</h3>
+                        <p>Suporte completo para tema escuro</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-accessible-icon"></i>
-                        <h3>Acessível</h3>
-                        <p>Segue padrões WCAG de acessibilidade</p>
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Seguro</h3>
+                        <p>Sem dependências externas desnecessárias</p>
                     </div>
                 </div>
             </section>
 
             <section id="instalacao" class="content-section">
                 <h2>Instalação</h2>
-                <p>Para começar, clone o repositório:</p>
+                <p>Siga os passos abaixo para configurar seu próprio template:</p>
                 <div class="code-block">
-                    <pre><code>git clone https://github.com/andromarcio/doc-template.git
+                    <code>git clone https://github.com/andromarcio/doc-template.git
 cd doc-template
-# Abra o arquivo index.html no seu navegador</code></pre>
+# Abra o index.html no navegador!</code>
                 </div>
             </section>
 
             <section id="uso" class="content-section">
                 <h2>Como Usar</h2>
-                <p>Edite o arquivo <code>index.html</code> com seu conteúdo:</p>
-                <ol>
-                    <li>Atualize o título da documentação</li>
-                    <li>Personalize os itens do menu no sidebar</li>
-                    <li>Adicione suas seções de conteúdo</li>
-                    <li>Customize as cores em <code>styles.css</code></li>
-                </ol>
+                <p>Customize o template editando os arquivos HTML, CSS e JavaScript:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                    <li><strong>index.html:</strong> Estrutura e conteúdo</li>
+                    <li><strong>styles.css:</strong> Estilos e temas</li>
+                    <li><strong>script.js:</strong> Funcionalidades interativas</li>
+                </ul>
             </section>
 
             <section id="api" class="content-section">
-                <h2>API de Exemplo</h2>
-                <p>Documentação de endpoints e funções:</p>
-                <div class="api-item">
-                    <h3>GET /api/data</h3>
-                    <p><strong>Descrição:</strong> Recupera dados do servidor</p>
-                    <p><strong>Resposta:</strong></p>
-                    <div class="code-block">
-                        <pre><code>{
-  "status": "success",
-  "data": { ... }
-}</code></pre>
-                    </div>
-                </div>
+                <h2>API & Documentação</h2>
+                <p>Acesse a documentação completa clicando em Framework → global/ para ver os arquivos de referência.</p>
             </section>
 
             <section id="exemplos" class="content-section">
-                <h2>Exemplos de Uso</h2>
-                <p>Aqui você pode adicionar exemplos práticos:</p>
-                <div class="code-block">
-                    <pre><code>// Exemplo de código
-function hello(name) {
-  return `Olá, ${name}!`;
-}
-
-console.log(hello("Mundo"));</code></pre>
-                </div>
+                <h2>Exemplos</h2>
+                <p>Confira os exemplos de uso no Framework menu.</p>
             </section>
 
             <section id="faq" class="content-section">
                 <h2>Perguntas Frequentes</h2>
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <h3>Como customizar o tema?</h3>
-                        <p>Edite as variáveis CSS no topo do arquivo styles.css</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>É responsivo?</h3>
-                        <p>Sim! O template é totalmente responsivo e funciona em mobile, tablet e desktop</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Preciso de dependências?</h3>
-                        <p>Não! Apenas HTML, CSS e JavaScript puro. Font Awesome é opcional para ícones.</p>
-                    </div>
+                <div class="faq-item">
+                    <h4>Como customizar as cores?</h4>
+                    <p>Edite as variáveis CSS em styles.css no :root</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Como adicionar novas seções?</h4>
+                    <p>Adicione novos elementos <code>&lt;section&gt;</code> no HTML</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Como fazer deploy?</h4>
+                    <p>Use GitHub Pages habilitando nas configurações do repositório</p>
                 </div>
             </section>
 
             <section id="contato" class="content-section">
                 <h2>Contato</h2>
-                <p>Para dúvidas ou sugestões, entre em contato através de:</p>
-                <ul>
-                    <li><strong>GitHub:</strong> <a href="https://github.com/andromarcio">@andromarcio</a></li>
-                    <li><strong>Email:</strong> seu-email@example.com</li>
-                </ul>
+                <p>Para dúvidas, sugestões ou contribuições, visite o repositório:</p>
+                <a href="https://github.com/andromarcio/doc-template" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-github"></i> Ir para GitHub
+                </a>
             </section>
         </main>
     </div>
 
-    <!-- Modal de Browser de Arquivos -->
+    <!-- File Browser Modal -->
+    <div class="modal-overlay" id="modalOverlay"></div>
     <div class="file-browser-modal" id="fileBrowserModal">
-        <div class="modal-overlay" id="modalOverlay"></div>
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalTitle">Estrutura do Repositório</h2>
+                <h2 id="modalTitle">📂 Estrutura do Repositório</h2>
                 <button class="modal-close" id="modalClose">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="breadcrumb" id="breadcrumb"></div>
+            <div class="breadcrumb-nav" id="breadcrumb"></div>
+            <div class="modal-body" id="modalBody">
                 <div class="file-list" id="fileList"></div>
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Doc Template. Todos os direitos reservados.</p>
-            <div class="social-links">
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
 
     <script src="./script.js"></script>
 </body>
