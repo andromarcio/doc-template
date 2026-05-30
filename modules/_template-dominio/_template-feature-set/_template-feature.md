@@ -257,7 +257,7 @@ logAction({
   Funções de Dados (ALI, AIE) são contadas centralmente no DATA-MODEL.md.
 -->
 
-| Endpoint | Tipo | Complexidade | PF |
+| Função de Transação | Tipo | Complexidade | PF |
 |---|---|---|---|
 | [ex: POST /api/v1/[rota] — exposto a sistema externo] | EE | Baixa / Média / Alta | [3/4/6] |
 | [ex: GET /api/v1/[rota] — com lógica de transformação] | SE | Baixa / Média / Alta | [4/5/7] |
