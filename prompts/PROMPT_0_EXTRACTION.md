@@ -82,7 +82,19 @@ Agrupe os requisitos identificados:
 - **Possíveis Feature Sets (N2)** por domínio: ex: em Vendas → Carrinho, Checkout
 - **Possíveis Features (N3)**: ex: Calcular Frete, Adicionar Item
 
-Apresente em forma de árvore e pergunte:
+Apresente em forma de árvore **numerada** (`1.`, `1.1`, `1.1.1`) para que
+cada item possa ser referenciado com precisão nas revisões. Exemplo:
+
+```
+- 1. Vendas
+  - 1.1 Carrinho
+    - 1.1.1 Adicionar Item
+    - 1.1.2 Remover Item
+  - 1.2 Checkout
+    - 1.2.1 Calcular Frete
+```
+
+Pergunte:
 > "A hierarquia proposta reflete os requisitos discutidos? Posso avançar
 > para a extração de dados e regras?"
 
@@ -125,10 +137,12 @@ que o PO usará como contexto ao rodar os PROMPTS 1A, 2A e 3A.
 - ...
 
 ## Árvore de Funcionalidades (Domínios → Feature Sets → Features)
-- [Domínio A]
-  - [Feature Set 1]
-    - [Feature 1.1]
-    - [Feature 1.2]
+- 1. [Domínio A]
+  - 1.1 [Feature Set 1]
+    - 1.1.1 [Feature]
+    - 1.1.2 [Feature]
+  - 1.2 [Feature Set 2]
+    - 1.2.1 [Feature]
 
 ## Dicionário de Campos Extraídos
 | Campo mencionado | Tipo inferido | Regras mencionadas |

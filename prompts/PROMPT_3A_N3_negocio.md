@@ -3,10 +3,12 @@
 
 > **Quem participa**: PO + dev (ou só PO)
 > **Insumo necessário**: N1 do domínio + N2 do Feature Set escolhido
+> *(ambos opcionais no fluxo bottom-up — ver Modo B abaixo)*
 > **Entrega**: rascunho do .md de cada feature com objetivo, campos
 > em Label PO, regras e cenários Gherkin negociais
 >
-> **Pré-requisito**: PROMPT_2B concluído para o Feature Set escolhido
+> **Pré-requisito (fluxo top-down)**: PROMPT_2B concluído para o Feature Set escolhido
+> **Pré-requisito (fluxo bottom-up)**: nenhum — informe nome do domínio, Feature Set e feature
 > **Próximo passo**: após aprovação, usar PROMPT_3B
 
 ---
@@ -46,19 +48,56 @@ Regras da sessão:
 === RULES-DICTIONARY.md ===
 [cole aqui o conteúdo do RULES-DICTIONARY.md]
 
-=== N1 DO DOMÍNIO ===
+=== N1 DO DOMÍNIO *(opcional — omita se não existir ainda)* ===
 [cole aqui o README.md do domínio]
 
-=== N2 DO FEATURE SET ===
+=== N2 DO FEATURE SET *(opcional — omita se não existir ainda)* ===
 [cole aqui o README.md do Feature Set]
+
+=== IDENTIFICAÇÃO MANUAL *(preencher apenas no fluxo bottom-up, quando N1/N2 não existem)* ===
+Domínio: [nome do domínio]
+Feature Set: [nome do Feature Set]
+Feature(s) a especificar: [nome da feature — ou lista separada por vírgula]
 
 ---
 
-## PASSO 1 — Confirmação das features
+## PASSO 1 — Detecção do modo e confirmação das features
 
-Leia o N2 e liste as features. Pergunte:
-> "Identifiquei as seguintes features em [Feature Set]: [lista].
+Verifique os insumos recebidos e bifurque:
+
+---
+
+### Modo A — Top-down (N2 disponível)
+
+Se o N2 foi fornecido, leia-o e liste as features. Pergunte:
+
+> "Identifiquei as seguintes features em **[Feature Set]**: [lista].
 > Qual delas deseja especificar primeiro?"
+
+---
+
+### Modo B — Bottom-up (sem N2)
+
+Se o N2 **não** foi fornecido, use a identificação manual. Confirme:
+
+> "Vou especificar a feature **[nome da feature]** do Feature Set
+> **[Feature Set]** no domínio **[Domínio]**.
+>
+> ⚠️ Como N1 e N2 ainda não existem, registrarei as informações de
+> contexto de domínio e Feature Set que surgirem durante a sessão —
+> elas servirão de insumo para gerar esses artefatos depois via **B2** e **B1**.
+>
+> Podemos começar?"
+
+Em Modo B, ao longo dos blocos:
+- Sempre que o usuário mencionar regras que pareçam valer para outras
+  features do mesmo Feature Set, sinalize com:
+  > "⚠️ Esta regra pode ser transversal ao Feature Set — anote para
+  > incluir no N2 quando for gerado via B2."
+- Sempre que mencionar regras que pareçam valer para o domínio inteiro,
+  sinalize com:
+  > "⚠️ Esta regra pode ser transversal ao domínio — anote para
+  > incluir no N1 quando for gerado via B1."
 
 ---
 
@@ -198,7 +237,18 @@ Após apresentar, pergunte:
 
 ## PASSO 4 — Confirmação de cobertura
 
-Após todas as features aprovadas:
+Após todas as features aprovadas, bifurque conforme o modo da sessão:
+
+**Modo A (top-down):**
 > "Parte negocial do N3 concluída para todas as features de [Feature Set].
 > Para complementar com a parte técnica e atualizar o DATA-MODEL.md,
 > use o PROMPT_3B passando cada .md gerado aqui como contexto."
+
+**Modo B (bottom-up):**
+> "Parte negocial do N3 concluída para todas as features de [Feature Set].
+>
+> **Próximos passos recomendados:**
+> 1. Use o **PROMPT_3B** para complementar cada N3 com a parte técnica
+> 2. Quando tiver N3s suficientes do Feature Set, use **B2** para gerar o N2
+> 3. Com os N2s prontos, use **B1** para gerar o N1 do domínio
+> 4. Rode **AU** para verificar duplicatas de regras entre as features especificadas"
