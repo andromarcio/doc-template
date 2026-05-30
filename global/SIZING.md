@@ -112,6 +112,27 @@ lógica do sistema. Endpoints consumidos exclusivamente pelo próprio frontend
 do N3 — vivem centralmente em `global/DATA-MODEL.md` e nos fragmentos
 `global/data-models/[dominio].md`. Ver seção *Como manter o registro de ALIs sincronizado*.
 
+### O que contar e o que não contar no N3
+
+Cada artefato N3 corresponde a uma única funcionalidade. Registre nele apenas
+as funções de transação geradas por essa funcionalidade:
+
+| O que encontrar no N3 | Contar? | Como contar |
+|---|---|---|
+| ALI — entidade mantida por este sistema | **Não** | Contado centralmente no DATA-MODEL.md |
+| AIE — entidade de sistema externo referenciada | **Não** | Contado centralmente no DATA-MODEL.md |
+| Endpoint exposto a sistema externo (POST/PUT/PATCH/DELETE) | **Sim** | EE |
+| Endpoint exposto a sistema externo (GET com transformação) | **Sim** | SE |
+| Endpoint exposto a sistema externo (GET simples) | **Sim** | CE |
+| Endpoint consumido apenas pelo frontend deste sistema (BFF) | **Não** | — |
+| Combobox / dropdown que carrega dados de um ALI ou AIE | **Sim** | CE (sem lógica) ou SE (com lógica de filtro ou transformação) |
+
+> **Regra do combobox**: sempre que uma tela carrega uma lista de opções a partir
+> de uma entidade marcada como ALI ou AIE — independentemente de ser via endpoint
+> BFF interno — essa consulta de suporte à interface **conta como CE ou SE**,
+> pois representa uma transação funcional distinta da funcionalidade principal.
+> Contar uma vez por entidade consultada, por tela onde ocorre.
+
 ### Quem conta e quando
 
 | Etapa | Responsável | Momento |
