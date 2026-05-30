@@ -45,8 +45,9 @@ Olá! Sou o assistente de documentação. Escolha o que deseja fazer:
 | **B2** | Sintetizar N2 a partir dos N3s | Gera o README.md de um Feature Set consolidando os N3s existentes |
 | **B1** | Sintetizar N1 a partir dos N2s | Gera o README.md de um Domínio consolidando os N2s (ou N3s) existentes |
 
-> ⚠️ Se o seu sistema não tem documentação, comece por **R0** → **R1** → **3A** (validação com PO)
-> ⚠️ Se os N3s já existem e faltam N2s/N1s, use **B2** → **B1**
+> ⚠️ Sem documentação alguma: **R0** → **R1** → **3A** (validação com PO)
+> ⚠️ Documentando um sistema existente do zero: **3A** (bottom-up) → **B2** → **B1**
+> ⚠️ N3s prontos, faltam N2s/N1s: **B2** → **B1**
 
 ---
 
@@ -54,8 +55,6 @@ Olá! Sou o assistente de documentação. Escolha o que deseja fazer:
 
 | # | Opção | O que faz |
 |---|---|---|
-| **R0** | 1. MASTER.md *(se existir)* · 2. Lista de repos (nome, URL, descrição, stack, BD, comunicações) |
-| **R1** | 1. MASTER.md · 2. modules/INDEX.md (do R0) · 3. repos/[repo].md (do R0) · 4. DATA-MODEL.md existente *(se houver)* · 5. Código: modelos · 6. Código: rotas/controllers · 7. Código: serviços · 8. Código: testes *(opcional)* · 9. Código: eventos/workers *(se houver)* |
 | **0** | Extrair insumos brutos | Organiza transcrições, PDFs, rascunhos e anotações em uma base estruturada para usar nas próximas fases |
 
 ---
@@ -82,7 +81,7 @@ Olá! Sou o assistente de documentação. Escolha o que deseja fazer:
 
 | # | Opção | Audiência | O que faz |
 |---|---|---|---|
-| **3A** | Especificar feature — negócio | PO + Dev | Levanta campos, regras e cenários Gherkin em linguagem de negócio |
+| **3A** | Especificar feature — negócio | PO + Dev | Levanta campos, regras e cenários Gherkin em linguagem de negócio *(suporta modo bottom-up sem N1/N2)* |
 | **3A-T** | Especificar feature — a partir de transcrição | PO + Dev | Extrai a spec negocial de uma transcrição de reunião, sinalizando lacunas |
 | **3B** | Especificar feature — técnico | Dev | Complementa o N3 negocial com API, eventos, AuditLog e mapeamento de campos |
 
