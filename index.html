@@ -51,6 +51,51 @@
                     <li><a href="#uso" class="nav-item">
                         <i class="fas fa-cogs"></i> Como Usar
                     </a></li>
+                    <li>
+                        <button class="nav-item nav-toggle" id="frameworkToggle">
+                            <i class="fas fa-folder-tree"></i> Framework
+                            <i class="fas fa-chevron-down" style="margin-left: auto; font-size: 0.8rem;"></i>
+                        </button>
+                        <ul class="nav-submenu" id="frameworkMenu" style="display: none;">
+                            <li><a href="https://github.com/andromarcio/doc-template" class="nav-subitem" target="_blank">
+                                <i class="fas fa-code-branch"></i> Repositório
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="">
+                                <i class="fas fa-folder"></i> Raiz
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="global">
+                                <i class="fas fa-folder"></i> global/
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="modules">
+                                <i class="fas fa-folder"></i> modules/
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="prototypes">
+                                <i class="fas fa-folder"></i> prototypes/
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="prompts">
+                                <i class="fas fa-folder"></i> prompts/
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="decisions">
+                                <i class="fas fa-folder"></i> decisions/
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="changelogs">
+                                <i class="fas fa-folder"></i> changelogs/
+                            </a></li>
+                            <li><hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.5rem 0;"></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="README.md">
+                                <i class="fas fa-file"></i> README.md
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="index.html">
+                                <i class="fas fa-file"></i> index.html
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="styles.css">
+                                <i class="fas fa-file"></i> styles.css
+                            </a></li>
+                            <li><a href="#" class="nav-subitem framework-link" data-path="script.js">
+                                <i class="fas fa-file"></i> script.js
+                            </a></li>
+                        </ul>
+                    </li>
                     <li><a href="#api" class="nav-item">
                         <i class="fas fa-code"></i> API
                     </a></li>
@@ -189,6 +234,23 @@ console.log(hello("Mundo"));</code></pre>
                 </ul>
             </section>
         </main>
+    </div>
+
+    <!-- Modal de Browser de Arquivos -->
+    <div class="file-browser-modal" id="fileBrowserModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Estrutura do Repositório</h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="breadcrumb" id="breadcrumb"></div>
+                <div class="file-list" id="fileList"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
