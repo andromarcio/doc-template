@@ -1,149 +1,195 @@
-# [Nome do Projeto] — Repositório de Documentação
+# Doc Template 📚
 
-Repositório central de especificações do sistema [Nome do Projeto].
-Toda decisão de negócio e arquitetura começa aqui, antes de qualquer linha de código.
+Um template moderno, responsivo e profissional para documentação, com topo, menu lateral esquerdo e visual atual.
+
+## ✨ Características
+
+- ✅ **Design Moderno**: UI limpa e profissional com gradientes elegantes
+- ✅ **Menu Lateral**: Navegação intuitiva na esquerda com ícones
+- ✅ **Modo Escuro**: Toggle entre tema claro e escuro com persistência
+- ✅ **Responsivo**: Funciona perfeitamente em desktop, tablet e mobile
+- ✅ **Sem Dependências**: Apenas HTML, CSS e JavaScript puro
+- ✅ **Ícones**: Usa Font Awesome para ícones profissionais
+- ✅ **Acessível**: Segue práticas de acessibilidade WCAG
+- ✅ **Otimizado**: Performance excelente e SEO-friendly
+
+## 🎨 Estrutura
+
+```
+doc-template/
+├── index.html      # Arquivo principal HTML
+├── styles.css      # Estilos CSS com variáveis
+├── script.js       # Interatividade e funcionalidades
+└── README.md       # Este arquivo
+```
+
+## 🚀 Como Usar
+
+### 1. Abrir Localmente
+
+Simplesmente abra o arquivo `index.html` no seu navegador:
+
+```bash
+# Opção 1: Abrir direto
+open index.html
+
+# Opção 2: Usar um servidor local (recomendado)
+python -m http.server 8000
+# Ou com Node.js
+npx http-server
+```
+
+### 2. Customizar Conteúdo
+
+Edite o `index.html` e atualize:
+
+- **Título**: Mude "Doc Template" para seu nome
+- **Logo**: Customize a marca na seção de header
+- **Menu**: Adicione/remova itens no sidebar
+- **Seções**: Adicione suas próprias seções de conteúdo
+- **Links**: Atualize os links para GitHub, suporte, etc.
+
+### 3. Customizar Cores
+
+Edite as variáveis CSS no topo de `styles.css`:
+
+```css
+:root {
+    --primary-color: #6366f1;        /* Cor principal */
+    --primary-dark: #4f46e5;         /* Cor escura */
+    --primary-light: #818cf8;        /* Cor clara */
+    --secondary-color: #ec4899;      /* Cor secundária */
+    --text-dark: #1e293b;            /* Texto escuro */
+    --text-muted: #64748b;           /* Texto atenuado */
+    --bg-white: #ffffff;             /* Fundo branco */
+    --bg-light: #f8fafc;             /* Fundo claro */
+}
+```
+
+## 📱 Responsividade
+
+O template se adapta automaticamente:
+
+- **Desktop** (>768px): Sidebar fixo na esquerda
+- **Tablet** (768px-480px): Sidebar mobile com toggle
+- **Mobile** (<480px): Layout otimizado com menu hambúrguer
+
+## 🌙 Modo Escuro
+
+- Clique no ícone da lua no header para alternar
+- Preferência é salva no `localStorage`
+- Persiste entre recargas da página
+
+## 📋 Funcionalidades do JavaScript
+
+- 🌓 Toggle de tema claro/escuro
+- 📌 Navegação suave entre seções
+- 📱 Menu responsivo com toggle
+- 📋 Cópia de blocos de código com um clique
+- ⌨️ Navegação por teclado (ESC para fechar menu)
+- 🎯 Destaque automático da seção ativa
+- ♿ Suporte a acessibilidade
+
+## 🔧 Personalização Avançada
+
+### Adicionar Nova Seção
+
+```html
+<section id="minha-secao" class="content-section">
+    <h2>Minha Seção</h2>
+    <p>Conteúdo aqui...</p>
+</section>
+```
+
+### Adicionar Item no Menu
+
+```html
+<li><a href="#minha-secao" class="nav-item">
+    <i class="fas fa-icon"></i> Meu Item
+</a></li>
+```
+
+### Bloco de Código
+
+```html
+<div class="code-block">
+    <pre><code>seu código aqui</code></pre>
+</div>
+```
+
+### Cards de Recursos
+
+```html
+<div class="feature-grid">
+    <div class="feature-card">
+        <i class="fas fa-icon"></i>
+        <h3>Título</h3>
+        <p>Descrição</p>
+    </div>
+</div>
+```
+
+## 🎯 Ícones Disponíveis
+
+Este template usa [Font Awesome 6.4](https://fontawesome.com/icons). Alguns exemplos:
+
+- `fa-home` - Home
+- `fa-book` - Livro
+- `fa-code` - Código
+- `fa-cogs` - Configurações
+- `fa-github` - GitHub
+- `fa-moon` - Lua
+- `fa-sun` - Sol
+- `fa-check` - Check
+- `fa-copy` - Copiar
+
+## 📚 SEO
+
+O template é otimizado para SEO:
+
+- ✅ Semântica HTML5 apropriada
+- ✅ Meta tags responsivas
+- ✅ Estrutura de headings clara
+- ✅ URLs amigáveis com `id` nas seções
+- ✅ Performance otimizada
+
+## ♿ Acessibilidade
+
+Recursos de acessibilidade inclusos:
+
+- ✅ Navegação por teclado
+- ✅ Labels apropriados
+- ✅ Contraste de cores WCAG
+- ✅ Textos alternativos para ícones
+- ✅ Estrutura semântica HTML
+
+## 🚀 Deploy no GitHub Pages
+
+1. Vá para as configurações do repositório
+2. Procure por "GitHub Pages"
+3. Selecione "Deploy from a branch"
+4. Escolha branch `main` e pasta `/ (root)`
+5. Salve
+
+Sua documentação estará em: `https://seu-username.github.io/doc-template`
+
+## 🛠️ Browser Support
+
+- ✅ Chrome/Edge (últimas 2 versões)
+- ✅ Firefox (últimas 2 versões)
+- ✅ Safari (últimas 2 versões)
+- ✅ Mobile browsers
+
+## 📝 Licença
+
+Este template é de código aberto e pode ser usado livremente.
+
+## 🤝 Contribuições
+
+Sinta-se livre para fazer fork, melhorar e compartilhar!
 
 ---
 
-## Como usar
+**Criado com ❤️ para documentação profissional**
 
-### Para o PO
-1. Use os prompts prefixados com `A` ou `0` (PROMPT_0, PROMPT_1A, PROMPT_2A, PROMPT_3A, PROMPT_4A)
-2. Esses prompts conduzem a sessão em linguagem de negócio — sem jargão técnico
-3. Abra um PR com o artefato gerado para revisão antes de avançar
-
-### Para o Dev
-1. Após aprovação negocial, use os prompts prefixados com `B` (PROMPT_1B, PROMPT_3B, PROMPT_4B)
-2. Cole apenas o fragmento `global/data-models/[dominio].md` relevante — não o DATA-MODEL inteiro
-3. Campos novos → `global/data-models/[dominio].md`. Erros novos → `global/ERROR-DICTIONARY.md`
-4. Ao implementar: preencha a seção `Implementação` no N3 e atualize `modules/INDEX.md`
-
-### Para o QA
-1. Use o PROMPT_QA após o N3 estar com status `📋 Especificado`
-2. Escolha o framework (Playwright, Cypress, Cucumber, roteiro manual)
-
-### Fluxo completo
-```
-[Opcional] PROMPT_0  → extrai insumos desestruturados → Raw Spec Document
-
-PO:  PROMPT_1A → N1 negocial → revisão → aprovação
-Dev: PROMPT_1B → N1 técnico + data-models/[dominio].md atualizado
-
-PO:  PROMPT_2A → N2 → revisão → aprovação
-
-PO:  PROMPT_3A → N3 negocial → revisão → aprovação
-Dev: PROMPT_3B → N3 técnico + data-models/[dominio].md atualizado
-
-Dev: PROMPT_SDD → documento de design → guia a implementação
-QA:  PROMPT_QA  → plano de testes E2E
-
-[Manutenção]
-PO:  PROMPT_4A → atualização negocial do N3
-Dev: PROMPT_4B → atualização técnica + verificação de breaking changes
-```
-
----
-
-## Estrutura do repositório
-
-```
-[projeto]-docs/
-├── README.md
-├── N0_PRODUCT_VISION.md                       ← Visão estratégica, personas, KPIs
-├── .github/
-│   └── pull_request_template.md
-├── global/
-│   ├── MASTER.md                              ← Stack, convenções globais
-│   ├── DESIGN-SYSTEM.md                       ← Padrões de UI
-│   ├── DATA-MODEL.md                          ← Índice + campos globais + enums
-│   ├── SIZING.md                              ← Critérios APF para contagem de PF
-│   ├── API-PATTERNS.md
-│   ├── ERROR-DICTIONARY.md                    ← Fonte única de códigos de erro
-│   ├── FIELD-DICTIONARY.md                    ← Campos canônicos (CPF, CEP, e-mail...)
-│   ├── RULES-DICTIONARY.md                    ← Regras de negócio canônicas
-│   └── data-models/                           ← Fragmentos por domínio (cole só o relevante)
-│       ├── _template-dominio.md               ← Template para novos domínios
-│       ├── identity.md
-│       ├── contacts.md
-│       ├── communication.md
-│       ├── work.md
-│       └── capture.md
-├── modules/
-│   ├── INDEX.md                               ← Rastreabilidade spec → código
-│   ├── _template-dominio/                     ← Templates de artefatos
-│   │   ├── README.md                          ← Template N1
-│   │   └── _template-feature-set/
-│   │       ├── README.md                      ← Template N2
-│   │       └── _template-feature.md           ← Template N3
-│   └── [dominio]/
-│       ├── README.md                          ← N1
-│       └── [feature-set]/
-│           ├── README.md                      ← N2
-│           └── [feature].md                   ← N3
-├── prototypes/
-│   └── [feature-set]/
-│       └── [feature]/                         ← HTMLs navegáveis gerados pelos prompts de protótipo
-├── prompts/
-│   ├── SYSTEM_PROMPT_analista_requisitos.md
-│   ├── PROMPT_MENU.md                         ← Orquestrador de sessões (ponto de entrada)
-│   ├── PROMPT_0_EXTRACTION.md                 ← Extração de insumos desestruturados
-│   ├── PROMPT_1A_N1_negocio.md
-│   ├── PROMPT_1B_N1_tecnico.md
-│   ├── PROMPT_2A_N2_negocio.md
-│   ├── PROMPT_2B_N2_tecnico.md                ← ⚠️ Deprecado — N2 é gerado completo pelo 2A
-│   ├── PROMPT_3A_N3_negocio.md
-│   ├── PROMPT_3A_N3_negocio_transcricao.md    ← N3 a partir de transcrição de reunião
-│   ├── PROMPT_3B_N3_tecnico.md
-│   ├── PROMPT_4A_N3_UPDATE_negocio.md         ← Manutenção de N3 existente (PO)
-│   ├── PROMPT_4B_N3_UPDATE_tecnico.md         ← Manutenção de N3 existente (Dev)
-│   ├── PROMPT_QA.md                           ← Geração de plano de testes E2E
-│   ├── PROMPT_SDD.md                          ← Documento de design técnico
-│   ├── PROMPT_REPO_MAPPING.md                 ← Mapeamento de repositórios (Brownfield)
-│   ├── PROMPT_REVERSE_ENGINEERING.md          ← Extração de specs a partir de código
-│   ├── PROMPT_PROTOTYPE_FLOW.md               ← Protótipo de fluxo a partir do N2
-│   ├── PROMPT_PROTOTYPE_FLOW_FULL.md          ← Fluxo completo (sidebar + topbar)
-│   ├── PROMPT_PROTOTYPE_FLOW_COMPONENT.md     ← Fluxo só da área de conteúdo
-│   ├── PROMPT_PROTOTYPE_SCREEN.md             ← Protótipo de estados a partir do N3
-│   ├── PROMPT_PROTOTYPE_SCREEN_FULL.md        ← Estados completos (sidebar + topbar)
-│   └── PROMPT_PROTOTYPE_SCREEN_COMPONENT.md   ← Estados só da área de conteúdo
-├── decisions/
-│   └── ADR-000-template.md
-├── changelogs/
-│   └── CHANGELOG-template.md
-└── repos/
-    ├── INDEX.md
-    └── _template-repo.md
-```
-
----
-
-## Princípios fundamentais
-
-**1. Label Dev e campo banco vivem apenas em `global/data-models/`**
-Os N3 usam apenas Label PO. Isso evita divergências entre spec e banco.
-
-**2. Códigos de erro vivem apenas no `global/ERROR-DICTIONARY.md`**
-Nenhum N3 cria códigos novos sem registrar aqui primeiro.
-
-**3. DATA-MODEL é fragmentado por domínio**
-Cole apenas o fragmento relevante nas sessões — não o arquivo inteiro.
-Isso evita o efeito "Lost in the Middle" em contextos longos.
-
-**4. O LLM opera como Máquina de Estados**
-Cada resposta informa explicitamente o estado atual, garantindo
-que o fluxo de perguntas nunca se quebre em sessões longas.
-
-**5. N0 balizea as inferências do LLM**
-Inclua o `N0_PRODUCT_VISION.md` ao iniciar novos domínios ou Feature Sets.
-
----
-
-## Status de especificação
-
-| Ícone | Status | Descrição |
-|---|---|---|
-| 📋 | Especificado | N3 completo, aguardando desenvolvimento |
-| 🔄 | Em desenvolvimento | Implementação em andamento |
-| ✅ | Implementado | Em produção, rastreabilidade preenchida |
-| ⚠️ | Revisão necessária | Spec desatualizada em relação ao código |
-| ❌ | Deprecado | Feature removida do sistema |
+Dúvidas? Abra uma [issue](https://github.com/andromarcio/doc-template/issues) no repositório!
