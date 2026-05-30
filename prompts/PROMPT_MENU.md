@@ -156,7 +156,7 @@ apresente o que será necessário fornecer. Use a tabela abaixo.
 | **1B** | 1. MASTER.md · 2. DATA-MODEL.md · 3. API-PATTERNS.md · 4. N1 negocial aprovado |
 | **2A** | 1. MASTER.md · 2. N1 completo do domínio |
 | **2B** | 1. MASTER.md · 2. DATA-MODEL do domínio (`data-models/[dominio].md`) · 3. API-PATTERNS.md · 4. N1 · 5. N2 negocial aprovado |
-| **3A** | 1. MASTER.md · 2. DESIGN-SYSTEM.md · 3. FIELD-DICTIONARY.md · 4. RULES-DICTIONARY.md · 5. N1 · 6. N2 |
+| **3A** | 1. MASTER.md · 2. DESIGN-SYSTEM.md · 3. FIELD-DICTIONARY.md · 4. RULES-DICTIONARY.md · 5. N1 *(opcional no bottom-up)* · 6. N2 *(opcional no bottom-up)* |
 | **3A-T** | 1. MASTER.md · 2. DESIGN-SYSTEM.md · 3. FIELD-DICTIONARY.md · 4. RULES-DICTIONARY.md · 5. N1 · 6. N2 · 7. Transcrição da reunião |
 | **3B** | 1. MASTER.md · 2. DATA-MODEL do domínio · 3. API-PATTERNS.md · 4. ERROR-DICTIONARY.md · 5. FIELD-DICTIONARY.md · 6. RULES-DICTIONARY.md · 7. N1 · 8. N2 · 9. N3 negocial aprovado |
 | **AU** | 1. RULES-DICTIONARY.md · 2. Trechos de regras transversais dos N1s relevantes · 3. N3s a varrer |
